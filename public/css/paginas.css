@@ -1,0 +1,206 @@
+
+body{
+    width:100%;
+    overflow-x: hidden;
+}
+
+main{
+    padding-top: 1px;
+}
+h1,h2,h3,h4{
+    text-align: center;
+    font-size: 33px;
+    color: grey;
+}
+nav{
+    margin-bottom: 40px;
+    /* position: absolute; */
+    width: 100%;
+}
+nav ul{
+    padding-left: 2vw;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+nav ul li{
+    /* border: 1px solid red; */
+    margin-left: 6px;
+    padding: 4px;
+    text-transform: capitalize;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.filmes{
+    display: flex;
+    flex-direction: row;
+    margin-top: 19px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-left: 22px;
+}
+.filmes li{
+    border: 1px solid #b1a9a9;
+    width: 20.1vw;
+    margin-right: 20px;
+    padding: 1vw;
+    border-radius: 7px;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 3vh;
+}
+.filmes li img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 101%;
+}
+.filmes li div{
+    height: 150px;
+    position: relative;
+    border: 1px dotted #b1b1b1;
+    overflow: hidden;
+    border-radius: 16px;
+}
+.filmes .select{
+    height: 60px;
+    border-radius: 9px;
+    padding: 8px;
+    left: 50%;
+    transform: translate(-50%,8px);
+    z-index: 3;
+    background-color: #d6d6d661;
+    border: 1px solid #c1c1c1;
+}
+
+.filmes .select label{
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #717171;
+}
+
+input[type='radio']{visibility:hidden;}
+
+
+#favoritos ul li{
+    border: 1px solid #b3b3b3;
+    width: 30%;
+    overflow: hidden;
+    height: 30vh;
+    margin-left: 5px;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+#favoritos ul li img{
+    z-index: -1;
+    position: absolute;
+    width: 192%;
+    TOP: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#favoritos ul{
+    display: flex;
+}
+#favoritos ul li div{
+    position: RELATIVE;
+}
+
+#favoritos ul li {color: #5a5a5a;}
+#favoritos ul li p{background-color: #ffffffb0;width: 90%;padding: 11px;color: #4c4c4c;text-transform: capitalize;text-align: center;}
+
+
+.generos_info{
+    font-size: 22px;
+    display: block;
+    border: 1px solid #bfbfbf;
+    margin-bottom: 9px;
+    border-radius: 7px;
+    padding: 7px;
+    text-transform: capitalize;
+    color: #656565;
+    background-color: #e6e6e6;
+}
+
+.titulos_info{
+   color:#757575; 
+}
+
+.ano_info{
+    color:#404040;
+    margin-bottom:6px
+}
+
+#navigation{height: 6vh;position: relative;background-color: #888888;}
+
+#criaGenero{
+     border: 1px solid grey;
+     width: 84vw;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%,-50%);
+     padding: 1vw;
+     border-radius: 18px;
+     box-shadow: 6px 6px #00000061;
+}
+#criaGenero form{
+   
+}
+#idGenero{border: 1px solid #c5c5c5;}
+
+
+#registro,#loginScreen,#criaFilmes{border: 1px solid #d2d2d2;padding: 1vw;margin: 1vw;border-radius: 8px;width: 59%;box-shadow: 7px 11px #0000004f;position: relative;left: 50%;transform: translateX(-50%);}
+#registro p,#loginScreen p,#criaFilmes p{/* border: 1px solid #cecece; */margin-bottom: 8px;}
+#registro p input,#loginScreen input,#criaFilmes input{border: 1px solid #bdbdbd;color: #008290;padding: 6px;width: 100%;}
+#registro a,#loginScreen a{color:#036871;font-size: 30px;text-decoration: none;font-weight: bold;text-transform: capitalize;margin-top: 33px;display: block;}
+
+input[type="text"],textarea,select,input:not([type="submit"]),input:not([type='button']){
+    border: 1px solid #969696;
+    box-shadow: -4px 4px #00000040;
+    border-radius: 4px;
+    padding: 5px;
+    min-height: 36px;
+    color: #545454;
+    margin-bottom: 11px;
+}
+input[type="submit"],button{
+    background-color: #06aba1;
+    min-height: 41px;
+    padding: 7px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+textarea{display: block;width: 99%;height: 130px;}
+ul{}
+ul li{
+    font-size: 20px;
+    color: #6d6d6d;
+    text-transform: capitalize;
+    margin-bottom: 6px;
+    list-style: none;
+    border: 1px solid transparent;
+}
+/*
+ul li:hover:not(){
+    border: 1px solid #c5c5c5;
+    border-radius: 6px;
+    background-color: #e6e6e6;
+    padding-left: 3%;
+}*/
+label{margin: 5px;padding: 3px;color: #868686;display: inline-block;font-size: 19px;}

@@ -1,0 +1,42 @@
+#criaFilmes{
+
+display: FLEX;
+
+/* flex-direction: column; */
+
+/* border: 1px solid #c5c5c5; */
+}
+
+#criaFilmes form{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #adadad;
+    padding: 8px;
+    border-radius: 7px;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+#criaFilmes p input,#criaFilmes p select{
+    width: 90%;
+    height: 37px;
+    color: #717171;
+}
+
+#criaFilmes p textarea{
+    height: 85px;
+    display: block;
+}
+
+#criaFilmes p input[type="submit"]{
+    background-color: #e6e6e6;
+    border: 1px solid #a5a5a5;
+    border-radius: 7px;
+    font-size: 22px;
+    TEXT-TRANSFORM: CAPITALIZE;
+}
+
+#criaFilmes p{
+    width: 33%;
+    font-size: 12px;
+}
