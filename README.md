@@ -5,6 +5,7 @@
     <li>Clone o repositório;</li>
     <li>Dentro da pasta raiz do projeto, execute o comando: <code>composer install</code></li>
     <li>Aguarde o projeto ser instalado e configurado.</li>
+    <li>Dentro da pasta raiz do projeto, execute o comando: <code>php artisan serve</code></li>
     <li>Acesse o projeto <a href="http://localhost:8000">aqui</a></li>
 </ol>
 
