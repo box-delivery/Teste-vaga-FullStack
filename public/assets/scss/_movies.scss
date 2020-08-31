@@ -1,0 +1,12 @@
+.movies {
+    padding: 40px;
+    .card {
+        &-action {
+            display: flex;
+            justify-content: space-between;
+            a {
+                margin-right: 0 !important;
+            }
+        }
+    }
+}

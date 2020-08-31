@@ -1,0 +1,36 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+    display: none;
+    &:after {
+        content: "";
+        background-image: url("../img/spinner.png");
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        -moz-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 5%;
+        position: absolute;
+        margin: -6px;
+        width: inherit;
+        height: inherit;
+        animation: spin 1.1s linear infinite,1!important;
+        -webkit-animation: spin 1.1s linear infinite,1!important;
+    }
+}
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,151 @@
+* {
+    outline: none;
+}
+
+nav {
+    img {
+        margin-top: 12px;
+        height: 40px;
+    }
+    ul {
+        li {
+            a {
+                display: flex;
+                flex-direction: row;
+                i {
+                    margin: 0 10px 0 0;
+                }
+            }
+        }
+    }
+}
+
+header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 90.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../img/bp.jpg");
+        background-position: center top;
+        filter: brightness(50%) grayscale(100%);
+    }
+    h3,h5, i {
+        position: relative;
+        font-weight: bold;
+        margin: 0;
+        strong {
+            color: red;
+            font-weight: bold;
+        }
+    }
+    i {
+        position: absolute;
+        bottom: 0;
+    }
+    h6 {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+    }
+}
+
+section {
+    .section {
+        &-header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0 0;
+            color: white;
+            h4, p {
+                margin: 0;
+            }
+            h4 {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+        &-content {
+            padding: 40px;
+        }
+        &-footer {
+            padding: 0 0 20px;
+        }
+    }
+    .card {
+        &-content {
+            color: white;
+        }
+        &-action {
+            display: flex;
+            justify-content: space-between;
+            a {
+                margin-right: 0 !important;
+            }
+        }
+    }
+    .row {
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+    color: white;
+    a {
+        color: white;
+    }
+}
+
+.headers {
+    padding: 0;
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    color: white;
+    &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 250px;
+        background-image: url("../img/sections.jpg");
+        background-position: center top;
+        filter: brightness(50%) grayscale(60%);
+    }
+    h3 {
+        position: absolute;
+        margin: 0 45px 20px;
+        line-height: 1;
+    }
+}
+
+.pagination {
+    li {
+        &.active {
+            background: #F44336;
+        }
+    }
+}
+
+@import "login";
+@import "movies";
+@import "preloader";
