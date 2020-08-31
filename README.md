@@ -1,5 +1,5 @@
-#Olá!
-##Bem vindo ao projeto <span style="color:red">MovieFlix</span>
+<h2>Olá!</h2>
+<h4>Bem vindo ao projeto <span style="color:red">MovieFlix</span></h4>
 
 <ol>
     <li>Clone o repositório;</li>
@@ -10,7 +10,7 @@
 
 ---
 
-#####Observações:
+<h5>Observações:</h5>
 <p>Foi gerado um usuário inicial para poder fazer testes ao sistema:</p>
 
 - usuário: user@movieflix.com.br
