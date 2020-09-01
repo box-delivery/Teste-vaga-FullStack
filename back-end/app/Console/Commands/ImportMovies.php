@@ -43,10 +43,10 @@ class ImportMovies extends Command
         dump("############################################################################################");
         dump('['.date('Y-m-d H:i:s').'] local.INFO: Starting to import movies');
 
-        $totalPages = MoviesController::getImportMovies(1, true);
+        $totalPages = MoviesController::importMovies(1, true);
         $count=0;
         for ($i=1; $i<=$totalPages; $i++) {
-            $movies = MoviesController::getImportMovies($i);
+            $movies = MoviesController::importMovies($i);
             foreach ($movies->results as $movie) {
                 $count++;
                 Movie::firstOrCreate(

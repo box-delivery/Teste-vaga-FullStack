@@ -63,3 +63,11 @@ Body/raw data:
 * Movies - Route: /api/movies [GET],
 * Add Favorites - Route: /api/favorites/store [POST],
 * Delete Favorites - Route: /api/favorites/destroy/{$id} [DELETE],
+
+## Run automated tests (PHPUnit)
+* Run the command below on the terminal to process the tests.
+``` 
+composer test
+or
+vendor/bin/phpunit
+```

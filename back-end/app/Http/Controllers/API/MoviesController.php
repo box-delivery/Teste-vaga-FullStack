@@ -25,7 +25,7 @@ class MoviesController extends Controller
      * @param false $totalPages
      * @return \Illuminate\Http\JsonResponse|mixed
      */
-    public static function getImportMovies($page = 1, $totalPages = false)
+    public static function importMovies($page = 1, $totalPages = false)
     {
         try {
             // Create a cURL handle.

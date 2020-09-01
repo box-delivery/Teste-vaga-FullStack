@@ -78,7 +78,10 @@ class FavoritesController extends Controller
         }
     }
 
-
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy($id)
     {
         try {
