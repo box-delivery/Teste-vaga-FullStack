@@ -1,9 +1,12 @@
 <template>
   <header class="header-global">
     <base-nav class="navbar-main" transparent type="" effect="light" expand>
-      <a slot="brand" class="navbar-brand mr-lg-5" href="/">
+      <router-link v-if="!user" to="/" slot="brand" class="navbar-brand mr-lg-5">
         <img src="img/brand/white.png" />
-      </a>
+      </router-link>
+      <router-link v-else to="/landing" slot="brand" class="navbar-brand mr-lg-5">
+        <img src="img/brand/white.png" />
+      </router-link>
 
       <div class="row" slot="content-header">
         <div class="col-6 collapse-brand">
