@@ -16,7 +16,6 @@ class Movie extends Model
     protected $fillable = [
         'codigo',
         'title',
-        'release_date',
         'original_title',
         'overview',
         'poster_path'

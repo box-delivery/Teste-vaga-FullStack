@@ -13,12 +13,13 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->messages()], 200);
+            return response()->json(['errors' => $validator->messages()], 422);
         }
 
         $user = User::create([
@@ -28,7 +29,6 @@ class AuthController extends Controller
         ]);
 
         $token = $token = JWTAuth::fromUser($user);
-
         return $this->respondWithToken($token);
     }
 
@@ -45,7 +45,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->messages()], 200);
+            return response()->json(['errors' => $validator->messages()], 422);
         }
 
         if (! $token = JWTAuth::attempt($credentials)) {
