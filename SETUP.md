@@ -21,11 +21,13 @@ Após instalar todas as dependencias, gerar as tabelas e dados
 
 Utilizando postman, insomnia ou outro da sua preferencia
 
-Registrar um novo usuário
+### Registrar um novo usuário
 
 POST /api/auth/register
+
 headers:
     Content-Type: application/json
+    
 data: {
 	"name": "Seu nome",
 	"email": "seu_email@gmail.com",
@@ -33,42 +35,49 @@ data: {
 	"password_confirmation": "123456"
 }
 
-Efetuar login
+### Efetuar login
 
 POST api/auth/login
+
 headers:
     Content-Type: application/json
+
 data: {
 	"email": "seu_email@gmail.com",
 	"password": "123456"
 }
 
-Efetuar logout
+### Efetuar logout
 
 POST /api/auth/logout
+
 headers:
     Authorization: Bearer {token}
 
-Listar todos os filmes
+### Listar todos os filmes
 
 GET /api/movies
+
 headers:
     Authorization: Bearer {token}
 
-Listar todos filmes favoritos do usuário
+### Listar todos filmes favoritos do usuário
 
 GET /api/movies/favorites/{user_id}
+
 headers:
     Authorization: Bearer {token}
 
-Adicionar um filme aos favoritos do usuário
+### Adicionar um filme aos favoritos do usuário
 
 POST /api/movies/favorites/{user_id}/add/{movie_id}
+
 headers:
     Authorization: Bearer {token}
 
-Remover um filme dos favoritos do usuário
+### Remover um filme dos favoritos do usuário
 
 DELETE /api/movies/favorites/{user_id}/remove/{movie_id}
+
 headers:
     Authorization: Bearer {token}
