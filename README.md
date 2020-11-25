@@ -1,41 +1,40 @@
-## Objetivos
-O objetivo do teste é conhecer as habilidades em:
-- Programação PHP / Laravel
-- Organização e estruturação de um projeto
-- Análise/Entendimento de requisitos
-- Qualidade do código
-- Conhecimento em banco de dados
-- Conhecimento de APIS restful
-- Lógica
 
-## Importante
-Nenhum código desenvolvido nesse teste será utilizado de forma comercial. O objetivo aqui é apenas avaliar o conhecimento do candidato.
+## Configure
 
-## O teste
-Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
+### Database
+- **Version:** MySQL 5.7
+- **Name:** delivery_test
+- **File:** ./database/delivery_test.sql
+- **Laravel Migration:** true
+---
+### Back-end
+- **Host:** testephp.laravel
+- **Doc File:** ./docs/Delivery Test.postman_collection.json (Postman Collection v2.1)
+- **Doc Url:** https://documenter.getpostman.com/view/8724744/TVmFm1qN
+---
+### Unit Test
+- Unit tests are on Postman, along with routes and documentation (Tests Tab)
+---
+### Install & Requeriments
+#### Requeriments
+- Laravel 8.x Server Requeriments https://laravel.com/docs/8.x/installation
+- PHP 7.3 >=
+- MySQL 5.7 >=
+- Composer && php artisan installed
+#### Install
+- Clone this repository on a clean folder: https://github.com/matmper/Teste-vaga-PHP
+- Use "composer install" on repository folder
+- Copy ".env.example" file and rename to ".env"
+- Configure your database on ".env" file (./.env)
+- Open your terminal and execute the migration: php artisan migrate
+- Configure your Movie DB API Key (v3) in ".env" file
+-- Alternative: import database file in your MySQL database (table movies is populated)
+---
+#### First Steps
+- Use register route [PUT] /users to create a new user
+- Use login route [POST] /users to login yourself and create your bearer token
+- In postman, your bearer token will be a variable,  but you can send it manually in the header
+- Use your system and be happy
 
-### Então você vai precisar:
-- Criar a estrutura de banco de dados
-- Popular a tabela de filmes (recomendados consumir a API do The Movie DB)
-- Criar sistema de autenticação para que o usuário se cadastre e consiga efetuar login
-- Criar os endpoints para:
-  - Cadastras usuário
-  - Efetuar login para poder consumir o restante da API
-  - Listar os filmes cadastrados no banco
-  - Listar os filmes que o usuário salvou como favorito
-  - Salvar um filme como favorito
-  - Remover um filme da lista de favoritos do usuário
-  
-Não esqueça das validações!
-
-### O que devo utilizar?
-- Laravel 
-
-### Plus
-- Testes automatizados
-
-### Como participar ?
-- Fazer um fork deste repositório e enviar um pull request ao finalizar. Não esqueça de colocar as instruções para rodar o projeto.
-
-
-# Boa sorte!
+![May the force be with us](https://media.tenor.com/images/1dc098da87dacc651a0738e2ef66c25f/tenor.gif)
+May the force be with us!
