@@ -22,7 +22,7 @@
 - MySQL 5.7 >=
 - Composer && php artisan installed
 #### Install
-- Clone this repository on a clean folder: https://github.com/matmper/Teste-vaga-PHP
+- Clone this repository on a clean folder: https://github.com/matmper/test-laravel-movie
 - Use "composer install" on repository folder
 - Copy ".env.example" file and rename to ".env"
 - Configure your database on ".env" file (./.env)
