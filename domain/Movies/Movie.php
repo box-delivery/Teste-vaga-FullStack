@@ -30,4 +30,16 @@ class Movie extends DomainModel
         'adult' => 'boolean',
         'video' => 'boolean'
     ];
+
+    public static function payload(array $data): array
+    {
+        $data['external_id'] = $data['id'];
+        unset($data['id']);
+        return $data;
+    }
+
+    public static function make(array $data): Movie
+    {
+        return new Movie(self::payload($data));
+    }
 }

@@ -12,4 +12,9 @@ class MovieRepository extends AbstractRepository
     {
         $this->model = $movie;
     }
+
+    public function findByExternalId(int $id): ?Movie
+    {
+        return $this->model->where('external_id', $id)->first();
+    }
 }

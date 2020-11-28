@@ -16,9 +16,9 @@ class CreateMoviesTable extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->boolean('adult');
-            $table->string('backdrop_path');
-            $table->string('homepage');
-            $table->integer('external_id');
+            $table->string('backdrop_path')->nullable();
+            $table->string('homepage')->nullable();
+            $table->integer('external_id')->unique();
             $table->string('imdb_id');
             $table->string('original_language');
             $table->string('original_title');
