@@ -17,4 +17,9 @@ class UserRepository extends AbstractRepository
     {
         return $this->model->where('email', $email)->firstOrFail();
     }
+
+    public function findBookmarksByUser(User $user)
+    {
+        return $user->bookmarks;
+    }
 }

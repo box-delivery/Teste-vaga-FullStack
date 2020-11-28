@@ -7,4 +7,5 @@ Route::post('users', [\App\Domain\Users\Controllers\UserController::class, 'stor
 
 Route::group(['middleware' => ['auth.jwt']], function() {
     Route::get('movies', [\App\Domain\Movies\Controllers\MovieController::class, 'index']);
+    Route::get('bookmarks', [\App\Domain\Users\Controllers\UserController::class, 'bookmarks']);
 });

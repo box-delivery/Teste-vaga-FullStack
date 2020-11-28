@@ -7,6 +7,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Domain\Shared\Traits\HasUuid;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Domain\Movies\Movie;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -41,5 +43,14 @@ class User extends Authenticatable implements JWTSubject
     public function setPasswordAttribute(string $password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function bookmarks()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_user', 'user_id', 'movie_id')
+            ->using(new class extends Pivot {
+                use HasUuid;
+            })
+            ->withTimestamps();
     }
 }
