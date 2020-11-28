@@ -14,6 +14,8 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasUuid, SoftDeletes;
 
+    public string $movie;
+
     protected $fillable = [
         'id',
         'name',
