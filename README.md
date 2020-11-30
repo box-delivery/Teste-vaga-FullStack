@@ -43,6 +43,11 @@ php artisan migrate --seed
 php artisan migrate:fresh --seed
 ````
 
+- Import movie list
+````console
+php artisan import:movie --limit 50
+````
+
 - Project url: [localhost:3001](http://localhost:3001)
 
 -------------
