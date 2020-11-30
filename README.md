@@ -48,6 +48,11 @@ php artisan migrate:fresh --seed
 php artisan import:movie --limit 50
 ````
 
+- Run tests
+```
+./vendor/bin/phpunit ./tests/
+```
+
 - Project url: [localhost:3001](http://localhost:3001)
 
 -------------
