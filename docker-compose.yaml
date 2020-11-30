@@ -1,0 +1,39 @@
+version: '3.3'
+
+volumes:
+  box-database:
+    external: true
+
+networks:
+  box:
+    external: true
+
+services:
+  # Database service running with mysql 5.7
+  box-database:
+    image: mysql:5.7
+    volumes:
+      - box-database:/var/lib/mysql
+    ports:
+      - '33001:3306'
+    environment:
+      - 'MYSQL_DATABASE=box-movies'
+      - 'MYSQL_USER=homestead'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ALLOW_EMPTY_PASSWORD=true'
+    networks:
+      - box
+  # API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www
+    volumes:
+      - '.:/var/www'
+    ports:
+      - '3001:80'
+    networks:
+      - box
+    depends_on:
+      - box-database
