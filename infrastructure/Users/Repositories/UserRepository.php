@@ -13,17 +13,6 @@ class UserRepository extends AbstractRepository
         $this->model = $user;
     }
 
-    public function persist(Model $model): Model
-    {
-        parent::persist($model);
-        
-        if ($model->movie !== null) {
-            $model->bookmarks()->attach($model->movie);
-        }
-
-        return $model;
-    }
-
     public function findByEmail(string $email): ?User
     {
         return $this->model->where('email', $email)->firstOrFail();

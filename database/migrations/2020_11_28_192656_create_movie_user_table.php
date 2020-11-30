@@ -18,6 +18,7 @@ class CreateMovieUserTable extends Migration
             $table->uuid('movie_id');
             $table->uuid('user_id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('movie_id')->references('id')->on('movies');
             $table->foreign('user_id')->references('id')->on('users');

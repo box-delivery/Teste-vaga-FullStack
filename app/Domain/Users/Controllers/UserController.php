@@ -6,6 +6,7 @@ use App\Domain\Users\Requests\UserRequest;
 use App\Domain\Users\Requests\BookmarkRequest;
 use App\Domain\Users\Services\CreateUserService;
 use App\Domain\Users\Services\CreateBookmarkService;
+use App\Domain\Users\Services\DeleteBookmarkService;
 use App\Domain\Shared\Traits\ExecuteService;
 use App\Http\Controllers\Controller;
 use Infrastructure\Users\Repositories\UserRepository;
@@ -33,5 +34,11 @@ class UserController extends Controller
     {
         $bookmark = $this->execute($service, $request->all());
         return response()->noContent(201);
+    }
+
+    public function deleteBookmark($id, DeleteBookmarkService $service)
+    {
+        $bookmark = $this->execute($service, $id);
+        return response()->noContent();
     }
 }

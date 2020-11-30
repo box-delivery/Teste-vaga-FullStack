@@ -9,7 +9,7 @@ class BookmarkRequest extends FormRequest
     public function rules()
     {
         return [
-            'movie' => ['required', 'string', 'uuid'],
+            'movie_id' => ['required', 'string', 'uuid'],
         ];
     }
 }

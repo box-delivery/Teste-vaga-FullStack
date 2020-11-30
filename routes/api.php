@@ -9,4 +9,5 @@ Route::group(['middleware' => ['auth.jwt']], function() {
     Route::get('movies', [\App\Domain\Movies\Controllers\MovieController::class, 'index']);
     Route::get('bookmarks', [\App\Domain\Users\Controllers\UserController::class, 'bookmarks']);
     Route::post('bookmarks', [\App\Domain\Users\Controllers\UserController::class, 'storeBookmark']);
+    Route::delete('bookmarks/{id}', [\App\Domain\Users\Controllers\UserController::class, 'deleteBookmark']);
 });

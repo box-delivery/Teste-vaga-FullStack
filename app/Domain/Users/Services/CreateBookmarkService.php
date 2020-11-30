@@ -4,24 +4,21 @@ namespace App\Domain\Users\Services;
 
 use Domain\Users\User;
 use Illuminate\Support\Facades\DB;
-use Infrastructure\Users\Repositories\UserRepository;
-use Infrastructure\Movies\Repositories\MovieRepository;
+use Infrastructure\Bookmarks\Repositories\BookmarkRepository;
 
 class CreateBookmarkService
 {
-    private UserRepository $userRepository;
-    private MovieRepository $movieRepository;
+    private BookmarkRepository $bookmarkRepository;
 
-    public function __construct(UserRepository $userRepository, MovieRepository $movieRepository)
+    public function __construct(BookmarkRepository $bookmarkRepository)
     {
-        $this->userRepository = $userRepository;
-        $this->movieRepository = $movieRepository;
+        $this->bookmarkRepository = $bookmarkRepository;
     }
 
     public function __invoke(array $data)
     {
         $user = auth()->user();
-        $user->movie = $data['movie'];
+        $user->movie_id = $data['movie_id'];
 
         $existMovie = $this->existUserBookmark($user);
 
@@ -30,7 +27,7 @@ class CreateBookmarkService
         } 
         
         DB::transaction(function () use ($user) {
-            $this->userRepository->persist($user);
+            $this->bookmarkRepository->persist($user);
         });
 
         return $user;
@@ -40,7 +37,7 @@ class CreateBookmarkService
         $exist = false; 
 
         $userMovie = $user->bookmarks->map(function ($movie) use($user, &$exist) {
-            if ($movie->id === $user->movie) {
+            if ($movie->id === $user->movie_id) {
                 $exist = true;
             }
         });

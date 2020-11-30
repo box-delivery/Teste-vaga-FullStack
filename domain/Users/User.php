@@ -14,8 +14,6 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasUuid, SoftDeletes;
 
-    public string $movie;
-
     protected $fillable = [
         'id',
         'name',
@@ -53,6 +51,7 @@ class User extends Authenticatable implements JWTSubject
             ->using(new class extends Pivot {
                 use HasUuid;
             })
-            ->withTimestamps();
+            ->withTimestamps()
+            ->whereNull('movie_user.deleted_at');
     }
 }
