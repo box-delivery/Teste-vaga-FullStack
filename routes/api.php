@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('auth')->group(function () {
+    Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
 });
+
 Route::prefix('user')->group(function () {
     Route::post('', [\App\Http\Controllers\UserController::class, 'create']);
 });
