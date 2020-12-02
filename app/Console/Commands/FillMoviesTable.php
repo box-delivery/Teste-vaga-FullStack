@@ -9,14 +9,12 @@ use Illuminate\Console\Command;
 class FillMoviesTable extends Command
 {
 
-    const MAX_MOVIES = 5;
-
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'movies:fill';
+    protected $signature = 'movies:fill {qty : how many movies to retrieve (max: 50)}';
 
     /**
      * The console command description.
@@ -44,6 +42,12 @@ class FillMoviesTable extends Command
     {
         $api_key = env("MOVIE_DB_API_KEY");
         $i = 0;
+        $qty = filter_var($this->argument('qty'), FILTER_VALIDATE_INT);
+
+        if ($qty === false || $qty <= 0 || $qty > 50) {
+            $this->error("Must inform a valid qty between 1 and 50");
+            return 1;
+        }
 
         do {
             $id = rand(100, 10000);
@@ -68,9 +72,8 @@ class FillMoviesTable extends Command
             $movie->overview = $data->overview;
             $movie->save();
 
-            $this->info("Imported movie {$data->title}");
-
             $i++;
-        } while ($i < self::MAX_MOVIES);
+            $this->info("Imported movie {$data->title}");
+        } while ($i < $qty);
     }
 }
