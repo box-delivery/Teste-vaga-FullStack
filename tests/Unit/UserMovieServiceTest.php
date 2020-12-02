@@ -85,4 +85,59 @@ class UserMovieServiceTest extends TestCase
         $this->assertTrue($result);
     }
 
+    public function testShouldDeleteMovieIfExists()
+    {
+        $movie_id = 2;
+
+        $userMock = $this->createMock(User::class);
+        $userMock->method('__get')
+            ->with('movies')
+            ->willReturn(collect([['id' => 1], ['id' => 2]]));
+
+        $relationshipMock = $this->createMock(BelongsToMany::class);
+        $relationshipMock->expects($this->once())
+            ->method('detach')
+            ->with($movie_id, true);
+
+        $userMock->method('movies')
+            ->willReturn($relationshipMock);
+
+        Auth::shouldReceive('user')
+            ->once()
+            ->with()
+            ->andReturn($userMock);
+
+        $userMovieService = new UserMovieService();
+        $result = $userMovieService->deleteMovieFromCurrentUserList($movie_id);
+
+        $this->assertTrue($result);
+    }
+
+    public function testShouldNotDeleteMovieIfDoesntExists()
+    {
+        $movie_id = 3;
+
+        $userMock = $this->createMock(User::class);
+        $userMock->method('__get')
+            ->with('movies')
+            ->willReturn(collect([['id' => 1], ['id' => 2]]));
+
+        $relationshipMock = $this->createMock(BelongsToMany::class);
+        $relationshipMock->expects($this->never())
+            ->method('detach');
+
+        $userMock->method('movies')
+            ->willReturn($relationshipMock);
+
+        Auth::shouldReceive('user')
+            ->once()
+            ->with()
+            ->andReturn($userMock);
+
+        $userMovieService = new UserMovieService();
+        $result = $userMovieService->deleteMovieFromCurrentUserList($movie_id);
+
+        $this->assertTrue($result);
+    }
+
 }

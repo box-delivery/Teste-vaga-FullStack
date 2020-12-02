@@ -35,6 +35,18 @@ class UserMovieService
         return true;
     }
 
+    public function deleteMovieFromCurrentUserList($movie_id) {
+        /** @var User $user */
+        $user = Auth::user();
+
+        if (!in_array($movie_id, $user->movies->pluck('id')->toArray())) {
+            return true;
+        }
+
+        $user->movies()->detach($movie_id);
+        return true;
+    }
+
 
 
 }

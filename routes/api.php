@@ -28,5 +28,6 @@ Route::middleware('auth:api')->group(function() {
     Route::prefix('users/current')->group(function() {
         Route::get('movies', [\App\Http\Controllers\MovieListController::class, 'list']);
         Route::put('movies', [\App\Http\Controllers\MovieListController::class, 'put']);
+        Route::delete('movies', [\App\Http\Controllers\MovieListController::class, 'delete']);
     });
 });
