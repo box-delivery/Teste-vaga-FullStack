@@ -24,4 +24,8 @@ Route::prefix('users')->group(function () {
 
 Route::middleware('auth:api')->group(function() {
     Route::get('movies', [\App\Http\Controllers\MovieController::class, 'list']);
+
+    Route::prefix('users/current')->group(function() {
+        Route::get('movies', [\App\Http\Controllers\MovieListController::class, 'list']);
+    });
 });
