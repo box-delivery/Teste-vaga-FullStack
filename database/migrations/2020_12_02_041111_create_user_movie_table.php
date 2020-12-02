@@ -19,6 +19,8 @@ class CreateUserMovieTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('movie_id')->references('id')->on('movies');
+
+            $table->primary(['user_id', 'movie_id']);
         });
     }
 
@@ -29,6 +31,6 @@ class CreateUserMovieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_movies');
+        Schema::dropIfExists('user_movie');
     }
 }
