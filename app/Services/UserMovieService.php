@@ -4,16 +4,30 @@
 namespace App\Services;
 
 
+use App\Exceptions\MovieNotFoundException;
+use App\Models\Movie;
 use App\Models\User;
+use App\Repositories\Movie as MovieRepository;
 use Illuminate\Support\Facades\Auth;
 
 class UserMovieService
 {
 
     /**
+     * @var MovieRepository
+     */
+    private $movieRepository;
+
+    public function __construct(MovieRepository $movieRepository)
+    {
+        $this->movieRepository = $movieRepository;
+    }
+
+    /**
      * @return \App\Models\Movie[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function getMoviesFromCurrentUser() {
+    public function getMoviesFromCurrentUser()
+    {
         /** @var User $user */
         $user = Auth::user();
         return $user->movies;
@@ -23,7 +37,14 @@ class UserMovieService
      * @param $movie_id
      * @return bool
      */
-    public function addMovieToCurrentUserList($movie_id) {
+    public function addMovieToCurrentUserList($movie_id)
+    {
+        // check that movie exists
+        $movie = $this->movieRepository->getMovieById($movie_id);
+        if ($movie === null) {
+            throw new MovieNotFoundException('Movie not found');
+        }
+
         /** @var User $user */
         $user = Auth::user();
 
@@ -35,7 +56,8 @@ class UserMovieService
         return true;
     }
 
-    public function deleteMovieFromCurrentUserList($movie_id) {
+    public function deleteMovieFromCurrentUserList($movie_id)
+    {
         /** @var User $user */
         $user = Auth::user();
 
@@ -46,7 +68,6 @@ class UserMovieService
         $user->movies()->detach($movie_id);
         return true;
     }
-
 
 
 }

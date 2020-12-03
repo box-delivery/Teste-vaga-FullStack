@@ -38,6 +38,10 @@ class Handler extends ExceptionHandler
             return Response::json(['message' => $e->getMessage()], 409);
         });
 
+        $this->renderable(function (MovieNotFoundException $e) {
+            return Response::json(['message' => $e->getMessage()], 404);
+        });
+
         $this->reportable(function (Throwable $e) {
             //
         });

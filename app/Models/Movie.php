@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereOverview($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereUpdatedAt($value)
+ * @method static Movie|null find($id)
  * @mixin \Eloquent
  */
 class Movie extends Model

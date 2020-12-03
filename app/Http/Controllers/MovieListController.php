@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserListMovieOperationRequest;
 use App\Models\User;
+use App\Repositories\Movie as MovieRepository;
 use App\Services\UserMovieService;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,11 @@ class MovieListController
         return Response::json($user->movies);
     }
 
-    public function put(UserListMovieOperationRequest $request) {
+    public function put(UserListMovieOperationRequest $request)
+    {
         $movie_id = $request->get('movie_id');
 
-        $userMovieService = new UserMovieService();
+        $userMovieService = new UserMovieService(new MovieRepository());
         $userMovieService->addMovieToCurrentUserList($movie_id);
 
         return Response::json([
@@ -31,10 +33,9 @@ class MovieListController
         ]);
     }
 
-    public function delete(UserListMovieOperationRequest $request) {
-        $movie_id = $request->get('movie_id');
-
-        $userMovieService = new UserMovieService();
+    public function delete($movie_id)
+    {
+        $userMovieService = new UserMovieService(new MovieRepository());
         $userMovieService->deleteMovieFromCurrentUserList($movie_id);
 
         return Response::json([
