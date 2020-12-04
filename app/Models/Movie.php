@@ -31,5 +31,7 @@ class Movie extends Model
     use HasFactory;
 
     protected $hidden = ['created_at', 'updated_at', 'pivot'];
-
+    protected $casts = [
+        'movie_db_id' => 'int',
+    ];
 }

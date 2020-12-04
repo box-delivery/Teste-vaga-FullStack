@@ -22,8 +22,8 @@ Route::prefix('users')->group(function () {
     Route::post('', [\App\Http\Controllers\UserController::class, 'create'])->name('user_create');
 });
 
-Route::middleware('auth:api')->group(function() {
-    Route::get('movies', [\App\Http\Controllers\MovieController::class, 'list']);
+Route::middleware('auth:api')->group(function () {
+    Route::get('movies', [\App\Http\Controllers\MovieController::class, 'list'])->name('movie_list');
 
     Route::prefix('users/current')->group(function() {
         Route::get('movies', [\App\Http\Controllers\MovieListController::class, 'list']);
