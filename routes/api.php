@@ -19,7 +19,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('users')->group(function () {
-    Route::post('', [\App\Http\Controllers\UserController::class, 'create']);
+    Route::post('', [\App\Http\Controllers\UserController::class, 'create'])->name('user_create');
 });
 
 Route::middleware('auth:api')->group(function() {
