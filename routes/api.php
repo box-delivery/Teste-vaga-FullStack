@@ -25,9 +25,9 @@ Route::prefix('users')->group(function () {
 Route::middleware('auth:api')->group(function () {
     Route::get('movies', [\App\Http\Controllers\MovieController::class, 'list'])->name('movie_list');
 
-    Route::prefix('users/current')->group(function() {
-        Route::get('movies', [\App\Http\Controllers\MovieListController::class, 'list']);
-        Route::put('movies', [\App\Http\Controllers\MovieListController::class, 'put']);
-        Route::delete('movies', [\App\Http\Controllers\MovieListController::class, 'delete']);
+    Route::prefix('users/current')->group(function () {
+        Route::get('movies', [\App\Http\Controllers\MovieListController::class, 'list'])->name('user_movie_list');
+        Route::put('movies', [\App\Http\Controllers\MovieListController::class, 'put'])->name('user_movie_put');
+        Route::delete('movies/{movie_id}', [\App\Http\Controllers\MovieListController::class, 'delete'])->name('user_movie_delete');
     });
 });
