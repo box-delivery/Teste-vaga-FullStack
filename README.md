@@ -1,41 +1,99 @@
-## Objetivos
-O objetivo do teste é conhecer as habilidades em:
-- Programação PHP / Laravel
-- Organização e estruturação de um projeto
-- Análise/Entendimento de requisitos
-- Qualidade do código
-- Conhecimento em banco de dados
-- Conhecimento de APIS restful
-- Lógica
+## Requisitos para executar a aplicação 
+- Docker instalado
+- Docker Compose instalado
+- Conta no MovieDB
 
-## Importante
-Nenhum código desenvolvido nesse teste será utilizado de forma comercial. O objetivo aqui é apenas avaliar o conhecimento do candidato.
+## Ferramentas utilizadas no desenvolvimento
+- PHP 8
+- Laravel 8
+- MySQL 8
+- Nginx 
 
-## O teste
-Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
+## Comandos para criação do ambiente
+- Entrar no diretório da aplicação
+- cp .env.example .env
+- Preencher as variaveis de ambientes MOVIE_DB_API_TOKEN e MOVIE_DB_API_URL de acordo com a sua conta
+- docker-compose up -d
+- docker exec -it app composer install
+- docker exec -it app php artisan migrate --seed
+- docker exec -it app php artisan key:generate
 
-### Então você vai precisar:
-- Criar a estrutura de banco de dados
-- Popular a tabela de filmes (recomendados consumir a API do The Movie DB)
-- Criar sistema de autenticação para que o usuário se cadastre e consiga efetuar login
-- Criar os endpoints para:
-  - Cadastras usuário
-  - Efetuar login para poder consumir o restante da API
-  - Listar os filmes cadastrados no banco
-  - Listar os filmes que o usuário salvou como favorito
-  - Salvar um filme como favorito
-  - Remover um filme da lista de favoritos do usuário
-  
-Não esqueça das validações!
+## Comando para rodar os testes da aplicação
+- docker exec -it app php artisan test
 
-### O que devo utilizar?
-- Laravel 
+## API Endpoints
+Adicionar cabeçalho Accept igual application/json para todas as requisições abaixo
+### GET /api/register
+Exemplo de corpo da requisição
+```json
+{
+    "name": "Flavio Alves",
+	"email": "test@gmail.com",
+	"password": "Senha;1234",
+	"password_confirmation": "Senha;1234"
+}
+```
+Retorno
 
-### Plus
-- Testes automatizados
+```json
+{
+  "token": "1|S6k63VyobiLxlILG9JWkyOdUItgir8zAdSminxLy",
+  "user": {
+    "name": "Flavio Alves",
+    "email": "test@gmail.com",
+    "updated_at": "2020-12-04T23:09:05.000000Z",
+    "created_at": "2020-12-04T23:09:05.000000Z",
+    "id": 1
+  }
+}
+```
 
-### Como participar ?
-- Fazer um fork deste repositório e enviar um pull request ao finalizar. Não esqueça de colocar as instruções para rodar o projeto.
+### GET /api/login
+Exemplo de corpo da requisição
+```json
+{
+    "email": "test@gmail.com",
+    "password": "senha1234"
+}
+```
+Retorno
 
+```json
+{
+  "token": "2|mTfz9sISsBSFNildkVYQsbTlZn3Ov3QfIThwFAB4",
+  "user": {
+    "id": 1,
+    "name": "Flavio Alves",
+    "email": "test@gmail.com",
+    "created_at": "2020-12-04T23:09:05.000000Z",
+    "updated_at": "2020-12-04T23:09:05.000000Z"
+  }
+}
+```
 
-# Boa sorte!
+#### Para acessar as rotas abaixo é necessário passar o cabeçalho Authorization com o valor Bearer {token}
+
+### GET /api/movies
+Retorno
+```json
+{
+  "data": []
+}
+```
+
+### PATCH /api/movies/{movie_id}/favorite
+Favoritar o filme para o usuário logado
+
+### PATCH /api/movies/{movie_id}/unfavorite
+Desfavoritar o filme para o usuário logado
+
+### GET /api/movies/favorite
+Listar os filmes favoritos do usuário logado
+
+Retorno
+
+```json
+{
+  "data": []
+}
+```
