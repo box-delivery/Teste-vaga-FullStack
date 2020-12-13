@@ -27,6 +27,15 @@
                             <a href="/search" class="btn btn-primary">Entrar</a>
                         </div>
                     </div>
+
+                    <div class="card card-titles" style="margin-left: 12%">
+                        <img class="card-img-top" src="img/user.png" alt="user">
+                        <div class="card-body">
+                            <h5 class="card-title">Admin Filmes Favoritos User</h5>
+                            <p class="card-text">Crud Preferência de Filmes.</p>
+                            <a href="/users" class="btn btn-primary">Entrar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
