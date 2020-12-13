@@ -46,7 +46,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL', ''),
-            'host' => '172.23.0.4',
+            'host' => '172.23.0.3',
             'port' => '3306',
             'database' => 'box-delivery',
             'username' => 'box-delivery-user',
