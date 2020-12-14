@@ -55,7 +55,7 @@ class MovieActionsTest extends TestCase
             ->once()
             ->andReturn($moviesMock);
 
-        $response = $this->actingAs($this->user, 'api')->get('/api/favorites');
+        $response = $this->actingAs($this->user, 'api')->get('/api/movies/favorites');
 
         $response->assertJsonStructure(['success','data']);
     }
@@ -77,7 +77,7 @@ class MovieActionsTest extends TestCase
             ->once()
             ->andReturn($favMovieMock);
 
-        $response = $this->actingAs($this->user, 'api')->postJson('/api/favorite', [
+        $response = $this->actingAs($this->user, 'api')->postJson('/api/movies/favorite', [
             'movieId' => self::VALID_MOVIE_ID
         ]);
 
@@ -100,7 +100,7 @@ class MovieActionsTest extends TestCase
             ->zeroOrMoreTimes()
             ->with($favMovieMock);
 
-        $response = $this->actingAs($this->user, 'api')->deleteJson('/api/favorite', [
+        $response = $this->actingAs($this->user, 'api')->deleteJson('/api/movies/favorite', [
             'movieId' => self::VALID_MOVIE_ID
         ]);
 

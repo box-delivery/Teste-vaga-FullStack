@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39abea39-3830-47e9-8102-092aaad45c81" name="Default Changelist" comment="" />
+    <list default="true" id="39abea39-3830-47e9-8102-092aaad45c81" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MovieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MovieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PassportAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PassportAuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/MovieService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/MovieService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/MovieActionsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/MovieActionsTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,7 +199,8 @@
       <workItem from="1607610317770" duration="73000" />
       <workItem from="1607610402795" duration="10229000" />
       <workItem from="1607696827329" duration="5177000" />
-      <workItem from="1607825573692" duration="6107000" />
+      <workItem from="1607825573692" duration="6620000" />
+      <workItem from="1607952079624" duration="867000" />
     </task>
     <servers />
   </component>

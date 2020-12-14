@@ -12,9 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public const TABLE_ALIAS = 'us';
-    public const TABLE_NAME = 'user';
-
     public const FIELD_ID = 'id';
     public const FIELD_NAME = 'name';
     public const FIELD_EMAIL = 'email';

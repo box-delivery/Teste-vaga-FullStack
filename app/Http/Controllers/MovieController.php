@@ -57,6 +57,14 @@ class MovieController extends Controller
 
             $user = Auth::user();
             $movieId = $request->post(self::FIELD_MOVIE_ID);
+            $movie = $this->service->findOneByIdOrNull($movieId);
+
+            if (!$movie) {
+                return response()->json([
+                    'error' => 'Este filme não existe na base de dados'
+                ], 200);
+            }
+
 
             $favoriteMovie = $this->userFavoriteMovieService->findOneById($user->id, $movieId);
 

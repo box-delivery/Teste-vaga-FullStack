@@ -25,6 +25,20 @@ class MovieService
         $this->model = $model;
     }
 
+
+    /**
+     * @param $movieId
+     *
+     * @return Movie|null
+     */
+    public function findOneByIdOrNull($movieId): ?Movie
+    {
+        $query = $this->model->newModelQuery();
+        return $query
+            ->where(Movie::FIELD_ID, $movieId)
+            ->first();
+    }
+
     /**
      * @return Collection|null
      */

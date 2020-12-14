@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 
-Route::middleware('auth:api')->group(function () {
 
-    Route::get('movies', [MovieController::class, 'index']);
-    Route::post('favorite', [MovieController::class, 'favoriteMovie']);
+Route::group(['middleware' => 'auth:api', 'prefix' => 'movies'], function() {
+    Route::get('/', [MovieController::class, 'index']);
     Route::get('favorites', [MovieController::class, 'listFavorites']);
+    Route::post('favorite', [MovieController::class, 'favoriteMovie']);
     Route::delete('favorite', [MovieController::class, 'deleteFavoriteMovie']);
 
 });
