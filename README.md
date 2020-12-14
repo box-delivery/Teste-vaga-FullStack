@@ -15,6 +15,9 @@
 ```
 - Execute o comando `php artisan key:generate`.
 
+## Laravel Passport
+Para utilizar a autenticação OAuth, é necessário instalar o Passport do Laravel, para isso execute o comando: `php artisan passport:install`
+
 ## Preparando o banco de dados
 Com o banco de dados configurado na etapa anterior, rode as migrations para montar a estrutura do projeto:
 `php artisan migrate`
@@ -22,6 +25,9 @@ Com o banco de dados configurado na etapa anterior, rode as migrations para mont
 ### Preenchendo a tabela de filmes com a API do MovieDB
 Com a estrutura montada, vamos preencher a tabela de filmes com os 20 filmes mais berm avaliados do MovieDB, para isso, execute o comando artisan:
 `php artisan movies:fill`
+
+## Rodando o projeto
+Para rodar o projeto, você pode utilizar o comando: `php artisan serve`
 
 ## Endpoints
 Agora o projeto está configurado, abaixo estão os endpoints para cada operação.
