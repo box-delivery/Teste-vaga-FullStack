@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(MovieSeeder::class);
+
+        User::factory(['email' => 'admin@admin.com', 'password' => bcrypt('password')]);
     }
 }

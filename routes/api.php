@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('user', [\App\Http\Controllers\UserController::class, 'store']);
+Route::post('user/token', [\App\Http\Controllers\UserController::class, 'issueToken']);
+
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('movies', [\App\Http\Controllers\MovieController::class, 'index']);
 });
