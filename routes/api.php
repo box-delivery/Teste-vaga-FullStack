@@ -20,4 +20,6 @@ Route::post('user/token', [\App\Http\Controllers\UserController::class, 'issueTo
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('movies', [\App\Http\Controllers\MovieController::class, 'index']);
     Route::get('favorites', [\App\Http\Controllers\UserMovieFavoriteController::class, 'index']);
+    Route::post('favorites', [\App\Http\Controllers\UserMovieFavoriteController::class, 'store']);
+    Route::delete('favorites', [\App\Http\Controllers\UserMovieFavoriteController::class, 'destroy']);
 });
