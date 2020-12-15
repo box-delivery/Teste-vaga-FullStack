@@ -1,0 +1,691 @@
+{
+	"info": {
+		"_postman_id": "c65dc3f6-7b23-4ac6-9c4a-dd48ce19d6df",
+		"name": "BoxDelivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "934a642c-ff19-4bba-8dc9-b4055d1ba7f6",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"api_token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {},
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53c59b36-b4da-46dc-b351-b7d01ca93357",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"api_token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin1@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "admin",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movies",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/movies?page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/users?sortBy=id&sortDesc=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "asdf",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "date_start",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "date_end",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDesc",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.9"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 5000,\n            \"name\": \"Dr. Bennie Gerlach IV\",\n            \"email\": \"wisozk.liza@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 4,\n            \"user_access\": [\n                {\n                    \"id\": 1843,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1971-02-06 14:18:05\",\n                    \"created_at\": \"2020-11-26T23:35:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:02.000000Z\"\n                },\n                {\n                    \"id\": 2405,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1976-01-22 00:43:04\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 8446,\n                    \"user_id\": 5000,\n                    \"last_login\": \"2007-03-15 19:49:51\",\n                    \"created_at\": \"2020-11-26T23:35:49.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:49.000000Z\"\n                },\n                {\n                    \"id\": 11261,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1987-09-12 01:04:59\",\n                    \"created_at\": \"2020-11-26T23:36:11.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:11.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4999,\n            \"name\": \"Jordy Gleichner\",\n            \"email\": \"paucek.antone@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 2,\n            \"user_access\": [\n                {\n                    \"id\": 4270,\n                    \"user_id\": 4999,\n                    \"last_login\": \"1990-03-07 06:31:30\",\n                    \"created_at\": \"2020-11-26T23:35:19.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:19.000000Z\"\n                },\n                {\n                    \"id\": 7601,\n                    \"user_id\": 4999,\n                    \"last_login\": \"2009-04-20 17:51:19\",\n                    \"created_at\": \"2020-11-26T23:35:43.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:43.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4998,\n            \"name\": \"Antone Windler Sr.\",\n            \"email\": \"bernard.funk@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 6378,\n                    \"user_id\": 4998,\n                    \"last_login\": \"1974-02-03 06:39:40\",\n                    \"created_at\": \"2020-11-26T23:35:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4997,\n            \"name\": \"Angelica Johnson\",\n            \"email\": \"zullrich@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 693,\n                    \"user_id\": 4997,\n                    \"last_login\": \"2020-04-15 20:52:45\",\n                    \"created_at\": \"2020-11-26T23:34:55.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:34:55.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4996,\n            \"name\": \"Garry Nienow\",\n            \"email\": \"antwon23@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2872,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1990-12-12 06:08:21\",\n                    \"created_at\": \"2020-11-26T23:35:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:09.000000Z\"\n                },\n                {\n                    \"id\": 5209,\n                    \"user_id\": 4996,\n                    \"last_login\": \"2004-11-17 03:24:37\",\n                    \"created_at\": \"2020-11-26T23:35:26.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:26.000000Z\"\n                },\n                {\n                    \"id\": 7236,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1996-05-22 18:41:26\",\n                    \"created_at\": \"2020-11-26T23:35:40.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:40.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4995,\n            \"name\": \"Freeda Lind\",\n            \"email\": \"fidel.kertzmann@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 6,\n            \"user_access\": [\n                {\n                    \"id\": 8593,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2005-10-29 10:09:37\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 9898,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2017-08-12 17:25:54\",\n                    \"created_at\": \"2020-11-26T23:36:01.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:01.000000Z\"\n                },\n                {\n                    \"id\": 10174,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-12-21 12:40:30\",\n                    \"created_at\": \"2020-11-26T23:36:03.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:03.000000Z\"\n                },\n                {\n                    \"id\": 11075,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-01-05 20:44:04\",\n                    \"created_at\": \"2020-11-26T23:36:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:09.000000Z\"\n                },\n                {\n                    \"id\": 12030,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1992-01-07 23:20:48\",\n                    \"created_at\": \"2020-11-26T23:36:17.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:17.000000Z\"\n                },\n                {\n                    \"id\": 13202,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1982-07-01 23:55:44\",\n                    \"created_at\": \"2020-11-26T23:36:25.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:25.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4994,\n            \"name\": \"Prof. Earline Grimes Sr.\",\n            \"email\": \"cgraham@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 7758,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1989-11-27 00:47:52\",\n                    \"created_at\": \"2020-11-26T23:35:44.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:44.000000Z\"\n                },\n                {\n                    \"id\": 8585,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1994-12-22 15:01:30\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 10137,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2014-12-01 17:39:08\",\n                    \"created_at\": \"2020-11-26T23:36:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:02.000000Z\"\n                },\n                {\n                    \"id\": 10388,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1973-04-18 14:08:20\",\n                    \"created_at\": \"2020-11-26T23:36:05.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:05.000000Z\"\n                },\n                {\n                    \"id\": 14446,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2015-12-22 06:46:28\",\n                    \"created_at\": \"2020-11-26T23:36:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4993,\n            \"name\": \"Roy Bayer\",\n            \"email\": \"karen16@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2495,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2011-05-22 06:21:42\",\n                    \"created_at\": \"2020-11-26T23:35:07.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:07.000000Z\"\n                },\n                {\n                    \"id\": 9834,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2013-07-29 18:05:14\",\n                    \"created_at\": \"2020-11-26T23:36:00.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:00.000000Z\"\n                },\n                {\n                    \"id\": 10515,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2004-03-12 18:19:21\",\n                    \"created_at\": \"2020-11-26T23:36:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:06.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4992,\n            \"name\": \"Kianna Toy\",\n            \"email\": \"sydney.leffler@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2371,\n                    \"user_id\": 4992,\n                    \"last_login\": \"1980-10-03 22:07:56\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 3845,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2020-10-27 08:17:28\",\n                    \"created_at\": \"2020-11-26T23:35:16.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:16.000000Z\"\n                },\n                {\n                    \"id\": 14324,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2016-10-22 16:30:43\",\n                    \"created_at\": \"2020-11-26T23:36:33.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:33.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4991,\n            \"name\": \"Brant Feil\",\n            \"email\": \"ogutmann@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 4072,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1999-05-20 15:53:14\",\n                    \"created_at\": \"2020-11-26T23:35:18.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:18.000000Z\"\n                },\n                {\n                    \"id\": 4630,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1977-07-30 08:07:22\",\n                    \"created_at\": \"2020-11-26T23:35:22.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:22.000000Z\"\n                },\n                {\n                    \"id\": 4832,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-07-01 06:57:36\",\n                    \"created_at\": \"2020-11-26T23:35:23.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:23.000000Z\"\n                },\n                {\n                    \"id\": 12486,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-06-21 13:54:02\",\n                    \"created_at\": \"2020-11-26T23:36:20.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:20.000000Z\"\n                },\n                {\n                    \"id\": 12696,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1998-12-31 14:51:02\",\n                    \"created_at\": \"2020-11-26T23:36:21.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:21.000000Z\"\n                }\n            ]\n        }\n    ],\n    \"first_page_url\": \"http://localhost:8000/api/users?page=1\",\n    \"from\": 1,\n    \"last_page\": 500,\n    \"last_page_url\": \"http://localhost:8000/api/users?page=500\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=1\",\n            \"label\": 1,\n            \"active\": true\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=3\",\n            \"label\": 3,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=4\",\n            \"label\": 4,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=5\",\n            \"label\": 5,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=6\",\n            \"label\": 6,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=7\",\n            \"label\": 7,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=8\",\n            \"label\": 8,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=9\",\n            \"label\": 9,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=10\",\n            \"label\": 10,\n            \"active\": false\n        },\n        {\n            \"url\": null,\n            \"label\": \"...\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=499\",\n            \"label\": 499,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=500\",\n            \"label\": 500,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://localhost:8000/api/users?page=2\",\n    \"path\": \"http://localhost:8000/api/users\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 5000\n}"
+				}
+			]
+		},
+		{
+			"name": "User Favorites",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/favorites?page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"favorites"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/users?sortBy=id&sortDesc=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "asdf",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "date_start",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "date_end",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDesc",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.9"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 5000,\n            \"name\": \"Dr. Bennie Gerlach IV\",\n            \"email\": \"wisozk.liza@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 4,\n            \"user_access\": [\n                {\n                    \"id\": 1843,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1971-02-06 14:18:05\",\n                    \"created_at\": \"2020-11-26T23:35:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:02.000000Z\"\n                },\n                {\n                    \"id\": 2405,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1976-01-22 00:43:04\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 8446,\n                    \"user_id\": 5000,\n                    \"last_login\": \"2007-03-15 19:49:51\",\n                    \"created_at\": \"2020-11-26T23:35:49.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:49.000000Z\"\n                },\n                {\n                    \"id\": 11261,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1987-09-12 01:04:59\",\n                    \"created_at\": \"2020-11-26T23:36:11.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:11.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4999,\n            \"name\": \"Jordy Gleichner\",\n            \"email\": \"paucek.antone@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 2,\n            \"user_access\": [\n                {\n                    \"id\": 4270,\n                    \"user_id\": 4999,\n                    \"last_login\": \"1990-03-07 06:31:30\",\n                    \"created_at\": \"2020-11-26T23:35:19.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:19.000000Z\"\n                },\n                {\n                    \"id\": 7601,\n                    \"user_id\": 4999,\n                    \"last_login\": \"2009-04-20 17:51:19\",\n                    \"created_at\": \"2020-11-26T23:35:43.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:43.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4998,\n            \"name\": \"Antone Windler Sr.\",\n            \"email\": \"bernard.funk@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 6378,\n                    \"user_id\": 4998,\n                    \"last_login\": \"1974-02-03 06:39:40\",\n                    \"created_at\": \"2020-11-26T23:35:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4997,\n            \"name\": \"Angelica Johnson\",\n            \"email\": \"zullrich@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 693,\n                    \"user_id\": 4997,\n                    \"last_login\": \"2020-04-15 20:52:45\",\n                    \"created_at\": \"2020-11-26T23:34:55.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:34:55.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4996,\n            \"name\": \"Garry Nienow\",\n            \"email\": \"antwon23@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2872,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1990-12-12 06:08:21\",\n                    \"created_at\": \"2020-11-26T23:35:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:09.000000Z\"\n                },\n                {\n                    \"id\": 5209,\n                    \"user_id\": 4996,\n                    \"last_login\": \"2004-11-17 03:24:37\",\n                    \"created_at\": \"2020-11-26T23:35:26.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:26.000000Z\"\n                },\n                {\n                    \"id\": 7236,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1996-05-22 18:41:26\",\n                    \"created_at\": \"2020-11-26T23:35:40.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:40.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4995,\n            \"name\": \"Freeda Lind\",\n            \"email\": \"fidel.kertzmann@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 6,\n            \"user_access\": [\n                {\n                    \"id\": 8593,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2005-10-29 10:09:37\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 9898,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2017-08-12 17:25:54\",\n                    \"created_at\": \"2020-11-26T23:36:01.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:01.000000Z\"\n                },\n                {\n                    \"id\": 10174,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-12-21 12:40:30\",\n                    \"created_at\": \"2020-11-26T23:36:03.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:03.000000Z\"\n                },\n                {\n                    \"id\": 11075,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-01-05 20:44:04\",\n                    \"created_at\": \"2020-11-26T23:36:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:09.000000Z\"\n                },\n                {\n                    \"id\": 12030,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1992-01-07 23:20:48\",\n                    \"created_at\": \"2020-11-26T23:36:17.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:17.000000Z\"\n                },\n                {\n                    \"id\": 13202,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1982-07-01 23:55:44\",\n                    \"created_at\": \"2020-11-26T23:36:25.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:25.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4994,\n            \"name\": \"Prof. Earline Grimes Sr.\",\n            \"email\": \"cgraham@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 7758,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1989-11-27 00:47:52\",\n                    \"created_at\": \"2020-11-26T23:35:44.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:44.000000Z\"\n                },\n                {\n                    \"id\": 8585,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1994-12-22 15:01:30\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 10137,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2014-12-01 17:39:08\",\n                    \"created_at\": \"2020-11-26T23:36:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:02.000000Z\"\n                },\n                {\n                    \"id\": 10388,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1973-04-18 14:08:20\",\n                    \"created_at\": \"2020-11-26T23:36:05.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:05.000000Z\"\n                },\n                {\n                    \"id\": 14446,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2015-12-22 06:46:28\",\n                    \"created_at\": \"2020-11-26T23:36:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4993,\n            \"name\": \"Roy Bayer\",\n            \"email\": \"karen16@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2495,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2011-05-22 06:21:42\",\n                    \"created_at\": \"2020-11-26T23:35:07.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:07.000000Z\"\n                },\n                {\n                    \"id\": 9834,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2013-07-29 18:05:14\",\n                    \"created_at\": \"2020-11-26T23:36:00.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:00.000000Z\"\n                },\n                {\n                    \"id\": 10515,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2004-03-12 18:19:21\",\n                    \"created_at\": \"2020-11-26T23:36:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:06.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4992,\n            \"name\": \"Kianna Toy\",\n            \"email\": \"sydney.leffler@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2371,\n                    \"user_id\": 4992,\n                    \"last_login\": \"1980-10-03 22:07:56\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 3845,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2020-10-27 08:17:28\",\n                    \"created_at\": \"2020-11-26T23:35:16.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:16.000000Z\"\n                },\n                {\n                    \"id\": 14324,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2016-10-22 16:30:43\",\n                    \"created_at\": \"2020-11-26T23:36:33.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:33.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4991,\n            \"name\": \"Brant Feil\",\n            \"email\": \"ogutmann@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 4072,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1999-05-20 15:53:14\",\n                    \"created_at\": \"2020-11-26T23:35:18.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:18.000000Z\"\n                },\n                {\n                    \"id\": 4630,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1977-07-30 08:07:22\",\n                    \"created_at\": \"2020-11-26T23:35:22.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:22.000000Z\"\n                },\n                {\n                    \"id\": 4832,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-07-01 06:57:36\",\n                    \"created_at\": \"2020-11-26T23:35:23.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:23.000000Z\"\n                },\n                {\n                    \"id\": 12486,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-06-21 13:54:02\",\n                    \"created_at\": \"2020-11-26T23:36:20.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:20.000000Z\"\n                },\n                {\n                    \"id\": 12696,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1998-12-31 14:51:02\",\n                    \"created_at\": \"2020-11-26T23:36:21.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:21.000000Z\"\n                }\n            ]\n        }\n    ],\n    \"first_page_url\": \"http://localhost:8000/api/users?page=1\",\n    \"from\": 1,\n    \"last_page\": 500,\n    \"last_page_url\": \"http://localhost:8000/api/users?page=500\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=1\",\n            \"label\": 1,\n            \"active\": true\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=3\",\n            \"label\": 3,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=4\",\n            \"label\": 4,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=5\",\n            \"label\": 5,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=6\",\n            \"label\": 6,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=7\",\n            \"label\": 7,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=8\",\n            \"label\": 8,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=9\",\n            \"label\": 9,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=10\",\n            \"label\": 10,\n            \"active\": false\n        },\n        {\n            \"url\": null,\n            \"label\": \"...\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=499\",\n            \"label\": 499,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=500\",\n            \"label\": 500,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://localhost:8000/api/users?page=2\",\n    \"path\": \"http://localhost:8000/api/users\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 5000\n}"
+				}
+			]
+		},
+		{
+			"name": "Add User Favorite",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "movie_id",
+							"value": "598",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/favorites",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/users?sortBy=id&sortDesc=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "asdf",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "date_start",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "date_end",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDesc",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.9"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 5000,\n            \"name\": \"Dr. Bennie Gerlach IV\",\n            \"email\": \"wisozk.liza@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 4,\n            \"user_access\": [\n                {\n                    \"id\": 1843,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1971-02-06 14:18:05\",\n                    \"created_at\": \"2020-11-26T23:35:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:02.000000Z\"\n                },\n                {\n                    \"id\": 2405,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1976-01-22 00:43:04\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 8446,\n                    \"user_id\": 5000,\n                    \"last_login\": \"2007-03-15 19:49:51\",\n                    \"created_at\": \"2020-11-26T23:35:49.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:49.000000Z\"\n                },\n                {\n                    \"id\": 11261,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1987-09-12 01:04:59\",\n                    \"created_at\": \"2020-11-26T23:36:11.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:11.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4999,\n            \"name\": \"Jordy Gleichner\",\n            \"email\": \"paucek.antone@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 2,\n            \"user_access\": [\n                {\n                    \"id\": 4270,\n                    \"user_id\": 4999,\n                    \"last_login\": \"1990-03-07 06:31:30\",\n                    \"created_at\": \"2020-11-26T23:35:19.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:19.000000Z\"\n                },\n                {\n                    \"id\": 7601,\n                    \"user_id\": 4999,\n                    \"last_login\": \"2009-04-20 17:51:19\",\n                    \"created_at\": \"2020-11-26T23:35:43.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:43.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4998,\n            \"name\": \"Antone Windler Sr.\",\n            \"email\": \"bernard.funk@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 6378,\n                    \"user_id\": 4998,\n                    \"last_login\": \"1974-02-03 06:39:40\",\n                    \"created_at\": \"2020-11-26T23:35:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4997,\n            \"name\": \"Angelica Johnson\",\n            \"email\": \"zullrich@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 693,\n                    \"user_id\": 4997,\n                    \"last_login\": \"2020-04-15 20:52:45\",\n                    \"created_at\": \"2020-11-26T23:34:55.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:34:55.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4996,\n            \"name\": \"Garry Nienow\",\n            \"email\": \"antwon23@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2872,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1990-12-12 06:08:21\",\n                    \"created_at\": \"2020-11-26T23:35:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:09.000000Z\"\n                },\n                {\n                    \"id\": 5209,\n                    \"user_id\": 4996,\n                    \"last_login\": \"2004-11-17 03:24:37\",\n                    \"created_at\": \"2020-11-26T23:35:26.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:26.000000Z\"\n                },\n                {\n                    \"id\": 7236,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1996-05-22 18:41:26\",\n                    \"created_at\": \"2020-11-26T23:35:40.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:40.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4995,\n            \"name\": \"Freeda Lind\",\n            \"email\": \"fidel.kertzmann@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 6,\n            \"user_access\": [\n                {\n                    \"id\": 8593,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2005-10-29 10:09:37\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 9898,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2017-08-12 17:25:54\",\n                    \"created_at\": \"2020-11-26T23:36:01.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:01.000000Z\"\n                },\n                {\n                    \"id\": 10174,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-12-21 12:40:30\",\n                    \"created_at\": \"2020-11-26T23:36:03.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:03.000000Z\"\n                },\n                {\n                    \"id\": 11075,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-01-05 20:44:04\",\n                    \"created_at\": \"2020-11-26T23:36:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:09.000000Z\"\n                },\n                {\n                    \"id\": 12030,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1992-01-07 23:20:48\",\n                    \"created_at\": \"2020-11-26T23:36:17.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:17.000000Z\"\n                },\n                {\n                    \"id\": 13202,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1982-07-01 23:55:44\",\n                    \"created_at\": \"2020-11-26T23:36:25.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:25.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4994,\n            \"name\": \"Prof. Earline Grimes Sr.\",\n            \"email\": \"cgraham@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 7758,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1989-11-27 00:47:52\",\n                    \"created_at\": \"2020-11-26T23:35:44.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:44.000000Z\"\n                },\n                {\n                    \"id\": 8585,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1994-12-22 15:01:30\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 10137,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2014-12-01 17:39:08\",\n                    \"created_at\": \"2020-11-26T23:36:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:02.000000Z\"\n                },\n                {\n                    \"id\": 10388,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1973-04-18 14:08:20\",\n                    \"created_at\": \"2020-11-26T23:36:05.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:05.000000Z\"\n                },\n                {\n                    \"id\": 14446,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2015-12-22 06:46:28\",\n                    \"created_at\": \"2020-11-26T23:36:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4993,\n            \"name\": \"Roy Bayer\",\n            \"email\": \"karen16@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2495,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2011-05-22 06:21:42\",\n                    \"created_at\": \"2020-11-26T23:35:07.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:07.000000Z\"\n                },\n                {\n                    \"id\": 9834,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2013-07-29 18:05:14\",\n                    \"created_at\": \"2020-11-26T23:36:00.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:00.000000Z\"\n                },\n                {\n                    \"id\": 10515,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2004-03-12 18:19:21\",\n                    \"created_at\": \"2020-11-26T23:36:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:06.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4992,\n            \"name\": \"Kianna Toy\",\n            \"email\": \"sydney.leffler@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2371,\n                    \"user_id\": 4992,\n                    \"last_login\": \"1980-10-03 22:07:56\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 3845,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2020-10-27 08:17:28\",\n                    \"created_at\": \"2020-11-26T23:35:16.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:16.000000Z\"\n                },\n                {\n                    \"id\": 14324,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2016-10-22 16:30:43\",\n                    \"created_at\": \"2020-11-26T23:36:33.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:33.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4991,\n            \"name\": \"Brant Feil\",\n            \"email\": \"ogutmann@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 4072,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1999-05-20 15:53:14\",\n                    \"created_at\": \"2020-11-26T23:35:18.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:18.000000Z\"\n                },\n                {\n                    \"id\": 4630,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1977-07-30 08:07:22\",\n                    \"created_at\": \"2020-11-26T23:35:22.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:22.000000Z\"\n                },\n                {\n                    \"id\": 4832,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-07-01 06:57:36\",\n                    \"created_at\": \"2020-11-26T23:35:23.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:23.000000Z\"\n                },\n                {\n                    \"id\": 12486,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-06-21 13:54:02\",\n                    \"created_at\": \"2020-11-26T23:36:20.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:20.000000Z\"\n                },\n                {\n                    \"id\": 12696,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1998-12-31 14:51:02\",\n                    \"created_at\": \"2020-11-26T23:36:21.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:21.000000Z\"\n                }\n            ]\n        }\n    ],\n    \"first_page_url\": \"http://localhost:8000/api/users?page=1\",\n    \"from\": 1,\n    \"last_page\": 500,\n    \"last_page_url\": \"http://localhost:8000/api/users?page=500\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=1\",\n            \"label\": 1,\n            \"active\": true\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=3\",\n            \"label\": 3,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=4\",\n            \"label\": 4,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=5\",\n            \"label\": 5,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=6\",\n            \"label\": 6,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=7\",\n            \"label\": 7,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=8\",\n            \"label\": 8,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=9\",\n            \"label\": 9,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=10\",\n            \"label\": 10,\n            \"active\": false\n        },\n        {\n            \"url\": null,\n            \"label\": \"...\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=499\",\n            \"label\": 499,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=500\",\n            \"label\": 500,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://localhost:8000/api/users?page=2\",\n    \"path\": \"http://localhost:8000/api/users\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 5000\n}"
+				}
+			]
+		},
+		{
+			"name": "Remove User Favorite",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "movie_id",
+							"value": "598",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/favorites",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/users?sortBy=id&sortDesc=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "asdf",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "date_start",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "date_end",
+									"value": "2020-11-27",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDesc",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Nov 2020 23:56:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.9"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 5000,\n            \"name\": \"Dr. Bennie Gerlach IV\",\n            \"email\": \"wisozk.liza@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 4,\n            \"user_access\": [\n                {\n                    \"id\": 1843,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1971-02-06 14:18:05\",\n                    \"created_at\": \"2020-11-26T23:35:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:02.000000Z\"\n                },\n                {\n                    \"id\": 2405,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1976-01-22 00:43:04\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 8446,\n                    \"user_id\": 5000,\n                    \"last_login\": \"2007-03-15 19:49:51\",\n                    \"created_at\": \"2020-11-26T23:35:49.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:49.000000Z\"\n                },\n                {\n                    \"id\": 11261,\n                    \"user_id\": 5000,\n                    \"last_login\": \"1987-09-12 01:04:59\",\n                    \"created_at\": \"2020-11-26T23:36:11.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:11.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4999,\n            \"name\": \"Jordy Gleichner\",\n            \"email\": \"paucek.antone@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 2,\n            \"user_access\": [\n                {\n                    \"id\": 4270,\n                    \"user_id\": 4999,\n                    \"last_login\": \"1990-03-07 06:31:30\",\n                    \"created_at\": \"2020-11-26T23:35:19.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:19.000000Z\"\n                },\n                {\n                    \"id\": 7601,\n                    \"user_id\": 4999,\n                    \"last_login\": \"2009-04-20 17:51:19\",\n                    \"created_at\": \"2020-11-26T23:35:43.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:43.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4998,\n            \"name\": \"Antone Windler Sr.\",\n            \"email\": \"bernard.funk@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 6378,\n                    \"user_id\": 4998,\n                    \"last_login\": \"1974-02-03 06:39:40\",\n                    \"created_at\": \"2020-11-26T23:35:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4997,\n            \"name\": \"Angelica Johnson\",\n            \"email\": \"zullrich@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 1,\n            \"user_access\": [\n                {\n                    \"id\": 693,\n                    \"user_id\": 4997,\n                    \"last_login\": \"2020-04-15 20:52:45\",\n                    \"created_at\": \"2020-11-26T23:34:55.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:34:55.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4996,\n            \"name\": \"Garry Nienow\",\n            \"email\": \"antwon23@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2872,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1990-12-12 06:08:21\",\n                    \"created_at\": \"2020-11-26T23:35:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:09.000000Z\"\n                },\n                {\n                    \"id\": 5209,\n                    \"user_id\": 4996,\n                    \"last_login\": \"2004-11-17 03:24:37\",\n                    \"created_at\": \"2020-11-26T23:35:26.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:26.000000Z\"\n                },\n                {\n                    \"id\": 7236,\n                    \"user_id\": 4996,\n                    \"last_login\": \"1996-05-22 18:41:26\",\n                    \"created_at\": \"2020-11-26T23:35:40.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:40.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4995,\n            \"name\": \"Freeda Lind\",\n            \"email\": \"fidel.kertzmann@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 6,\n            \"user_access\": [\n                {\n                    \"id\": 8593,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2005-10-29 10:09:37\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 9898,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2017-08-12 17:25:54\",\n                    \"created_at\": \"2020-11-26T23:36:01.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:01.000000Z\"\n                },\n                {\n                    \"id\": 10174,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-12-21 12:40:30\",\n                    \"created_at\": \"2020-11-26T23:36:03.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:03.000000Z\"\n                },\n                {\n                    \"id\": 11075,\n                    \"user_id\": 4995,\n                    \"last_login\": \"2002-01-05 20:44:04\",\n                    \"created_at\": \"2020-11-26T23:36:09.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:09.000000Z\"\n                },\n                {\n                    \"id\": 12030,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1992-01-07 23:20:48\",\n                    \"created_at\": \"2020-11-26T23:36:17.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:17.000000Z\"\n                },\n                {\n                    \"id\": 13202,\n                    \"user_id\": 4995,\n                    \"last_login\": \"1982-07-01 23:55:44\",\n                    \"created_at\": \"2020-11-26T23:36:25.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:25.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4994,\n            \"name\": \"Prof. Earline Grimes Sr.\",\n            \"email\": \"cgraham@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 7758,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1989-11-27 00:47:52\",\n                    \"created_at\": \"2020-11-26T23:35:44.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:44.000000Z\"\n                },\n                {\n                    \"id\": 8585,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1994-12-22 15:01:30\",\n                    \"created_at\": \"2020-11-26T23:35:50.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:50.000000Z\"\n                },\n                {\n                    \"id\": 10137,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2014-12-01 17:39:08\",\n                    \"created_at\": \"2020-11-26T23:36:02.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:02.000000Z\"\n                },\n                {\n                    \"id\": 10388,\n                    \"user_id\": 4994,\n                    \"last_login\": \"1973-04-18 14:08:20\",\n                    \"created_at\": \"2020-11-26T23:36:05.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:05.000000Z\"\n                },\n                {\n                    \"id\": 14446,\n                    \"user_id\": 4994,\n                    \"last_login\": \"2015-12-22 06:46:28\",\n                    \"created_at\": \"2020-11-26T23:36:34.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:34.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4993,\n            \"name\": \"Roy Bayer\",\n            \"email\": \"karen16@example.net\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2495,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2011-05-22 06:21:42\",\n                    \"created_at\": \"2020-11-26T23:35:07.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:07.000000Z\"\n                },\n                {\n                    \"id\": 9834,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2013-07-29 18:05:14\",\n                    \"created_at\": \"2020-11-26T23:36:00.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:00.000000Z\"\n                },\n                {\n                    \"id\": 10515,\n                    \"user_id\": 4993,\n                    \"last_login\": \"2004-03-12 18:19:21\",\n                    \"created_at\": \"2020-11-26T23:36:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:06.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4992,\n            \"name\": \"Kianna Toy\",\n            \"email\": \"sydney.leffler@example.org\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 0,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 3,\n            \"user_access\": [\n                {\n                    \"id\": 2371,\n                    \"user_id\": 4992,\n                    \"last_login\": \"1980-10-03 22:07:56\",\n                    \"created_at\": \"2020-11-26T23:35:06.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:06.000000Z\"\n                },\n                {\n                    \"id\": 3845,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2020-10-27 08:17:28\",\n                    \"created_at\": \"2020-11-26T23:35:16.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:16.000000Z\"\n                },\n                {\n                    \"id\": 14324,\n                    \"user_id\": 4992,\n                    \"last_login\": \"2016-10-22 16:30:43\",\n                    \"created_at\": \"2020-11-26T23:36:33.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:33.000000Z\"\n                }\n            ]\n        },\n        {\n            \"id\": 4991,\n            \"name\": \"Brant Feil\",\n            \"email\": \"ogutmann@example.com\",\n            \"email_verified_at\": \"2020-11-26T23:34:15.000000Z\",\n            \"active\": 1,\n            \"created_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"updated_at\": \"2020-11-26T23:34:50.000000Z\",\n            \"user_access_count\": 5,\n            \"user_access\": [\n                {\n                    \"id\": 4072,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1999-05-20 15:53:14\",\n                    \"created_at\": \"2020-11-26T23:35:18.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:18.000000Z\"\n                },\n                {\n                    \"id\": 4630,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1977-07-30 08:07:22\",\n                    \"created_at\": \"2020-11-26T23:35:22.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:22.000000Z\"\n                },\n                {\n                    \"id\": 4832,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-07-01 06:57:36\",\n                    \"created_at\": \"2020-11-26T23:35:23.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:35:23.000000Z\"\n                },\n                {\n                    \"id\": 12486,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1979-06-21 13:54:02\",\n                    \"created_at\": \"2020-11-26T23:36:20.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:20.000000Z\"\n                },\n                {\n                    \"id\": 12696,\n                    \"user_id\": 4991,\n                    \"last_login\": \"1998-12-31 14:51:02\",\n                    \"created_at\": \"2020-11-26T23:36:21.000000Z\",\n                    \"updated_at\": \"2020-11-26T23:36:21.000000Z\"\n                }\n            ]\n        }\n    ],\n    \"first_page_url\": \"http://localhost:8000/api/users?page=1\",\n    \"from\": 1,\n    \"last_page\": 500,\n    \"last_page_url\": \"http://localhost:8000/api/users?page=500\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=1\",\n            \"label\": 1,\n            \"active\": true\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=3\",\n            \"label\": 3,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=4\",\n            \"label\": 4,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=5\",\n            \"label\": 5,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=6\",\n            \"label\": 6,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=7\",\n            \"label\": 7,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=8\",\n            \"label\": 8,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=9\",\n            \"label\": 9,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=10\",\n            \"label\": 10,\n            \"active\": false\n        },\n        {\n            \"url\": null,\n            \"label\": \"...\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=499\",\n            \"label\": 499,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=500\",\n            \"label\": 500,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/users?page=2\",\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://localhost:8000/api/users?page=2\",\n    \"path\": \"http://localhost:8000/api/users\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 5000\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "992b1e26-08b8-4891-aee3-a34e046fb182",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5edc4367-3480-4fe4-a32f-52e27565f9ba",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

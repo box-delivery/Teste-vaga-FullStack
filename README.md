@@ -1,3 +1,138 @@
+# BoxDelivery
+### Requisitos
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install)
+
+### Rodar local
+- Acesse a pasta da aplicação, depois rode o comando a seguir:
+- Linux: `./start.sh`
+- Windows: `start.cmd`
+- Abra [http://localhost](http://localhost)
+
+## API DOC
+- Ou importe o arquivo `BoxDelivery.postman_collection.json` no [Postman](https://www.postman.com/)
+
+
+## End-point: Get Token
+### Description:
+Method: POST
+>```
+>{{base_url}}/api/user/token
+>```
+### Body formdata
+
+|Param|value|Type|
+|---|---|---|
+|email|admin@admin.com|text|
+|password|password|text|
+
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Create User
+### Description:
+Method: POST
+>```
+>{{base_url}}/api/user
+>```
+### Body formdata
+
+|Param|value|Type|
+|---|---|---|
+|email|admin1@admin.com|text|
+|password|password|text|
+|name|admin|text|
+
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Movies
+### Description:
+Method: GET
+>```
+>{{base_url}}/api/movies?page=1
+>```
+### Query Params
+
+|Param|value|
+|---|---|
+|page|1|
+
+
+### 🔑 Authentication bearer
+
+|Param|value|Type|
+|---|---|---|
+|token|{{api_token}}|string|
+
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: User Favorites
+### Description:
+Method: GET
+>```
+>{{base_url}}/api/favorites?page=1
+>```
+### Query Params
+
+|Param|value|
+|---|---|
+|page|1|
+
+
+### 🔑 Authentication bearer
+
+|Param|value|Type|
+|---|---|---|
+|token|{{api_token}}|string|
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Add User Favorite
+### Description:
+Method: POST
+>```
+>{{base_url}}/api/favorites
+>```
+### Body formdata
+
+|Param|value|Type|
+|---|---|---|
+|movie_id|598|text|
+
+
+### 🔑 Authentication bearer
+
+|Param|value|Type|
+|---|---|---|
+|token|{{api_token}}|string|
+
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## End-point: Remove User Favorite
+### Description:
+Method: DELETE
+>```
+>{{base_url}}/api/favorites
+>```
+### 🔑 Authentication bearer
+
+|Param|value|Type|
+|---|---|---|
+|token|{{api_token}}|string|
+
+----------------------------------------
 ## Objetivos
 O objetivo do teste é conhecer as habilidades em:
 - Programação PHP / Laravel
