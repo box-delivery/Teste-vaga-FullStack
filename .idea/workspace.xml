@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9559d54-1730-463e-8c80-83e18196b21d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Teste-vaga-PHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Teste-vaga-PHP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,9 +26,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -34,7 +43,31 @@
       <option name="presentableId" value="Default" />
       <updated>1607625897788</updated>
       <workItem from="1607625899493" duration="39000" />
+      <workItem from="1608381074956" duration="92000" />
+      <workItem from="1608381458013" duration="14000" />
+      <workItem from="1608381537326" duration="233000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1608381770189">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.900.1410/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1608381770189" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1608381770189">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.900.1410/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1608381770189" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1608381770189">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.900.1410/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1608381770189" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1608381770189">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.900.1410/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1608381770189" />
   </component>
 </project>
