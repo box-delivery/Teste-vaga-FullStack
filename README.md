@@ -1,6 +1,6 @@
 ## Objetivos
 O objetivo do teste é conhecer as habilidades em:
-- Programação PHP / Laravel
+- Programação PHP 
 - Organização e estruturação de um projeto
 - Análise/Entendimento de requisitos
 - Qualidade do código
@@ -15,6 +15,7 @@ Nenhum código desenvolvido nesse teste será utilizado de forma comercial. O ob
 Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
 
 ### Então você vai precisar:
+- Criar a estrutura de projeto utilizando as melhores técnicas que facilitem a manutenção futura do projeto
 - Criar a estrutura de banco de dados
 - Popular a tabela de filmes (recomendados consumir a API do The Movie DB)
 - Criar sistema de autenticação para que o usuário se cadastre e consiga efetuar login
@@ -29,7 +30,8 @@ Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam 
 Não esqueça das validações!
 
 ### O que devo utilizar?
-- Laravel 
+- Qualquer biblioteca/framework
+- Alguma arquitetura que facilite a manutenção futura do código
 
 ### Plus
 - Testes automatizados
