@@ -1,11 +1,11 @@
 ## Objetivos
 O objetivo do teste é conhecer as habilidades em:
-- Programação PHP 
+- Programação Backend 
 - Organização e estruturação de um projeto
 - Análise/Entendimento de requisitos
 - Qualidade do código
 - Conhecimento em banco de dados
-- Conhecimento de APIS restful
+- Conhecimento de APIs
 - Lógica
 
 ## Importante
