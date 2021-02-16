@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -60,3 +61,48 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+## Objetivos
+O objetivo do teste é conhecer as habilidades em:
+- Programação Backend 
+- Organização e estruturação de um projeto
+- Análise/Entendimento de requisitos
+- Qualidade do código
+- Conhecimento em banco de dados
+- Conhecimento de APIs
+- Lógica
+
+## Importante
+Nenhum código desenvolvido nesse teste será utilizado de forma comercial. O objetivo aqui é apenas avaliar o conhecimento do candidato.
+
+## O teste
+Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
+
+### Então você vai precisar:
+- Criar a estrutura de projeto utilizando as melhores técnicas que facilitem a manutenção futura do projeto
+- Criar a estrutura de banco de dados
+- Popular a tabela de filmes (recomendados consumir a API do The Movie DB)
+- Criar sistema de autenticação para que o usuário se cadastre e consiga efetuar login
+- Criar os endpoints para:
+  - Cadastras usuário
+  - Efetuar login para poder consumir o restante da API
+  - Listar os filmes cadastrados no banco
+  - Listar os filmes que o usuário salvou como favorito
+  - Salvar um filme como favorito
+  - Remover um filme da lista de favoritos do usuário
+  
+Não esqueça das validações!
+
+### O que devo utilizar?
+- Qualquer biblioteca/framework
+- Alguma arquitetura que facilite a manutenção futura do código
+
+### Plus
+- Testes automatizados
+
+### Como participar ?
+- Fazer um fork deste repositório e enviar um pull request ao finalizar. Não esqueça de colocar as instruções para rodar o projeto.
+
+
+# Boa sorte!
+>>>>>>> fbf64d56e4f109b66e3f056179b4f4dc33c395ee
