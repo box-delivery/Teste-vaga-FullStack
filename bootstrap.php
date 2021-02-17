@@ -4,7 +4,7 @@
 /**
  * Recupera o nome do método do Request
  *
- * @return void
+ * @return string
  */
 function getRequestMethod() {
     $method = $_SERVER['REQUEST_METHOD'];
@@ -15,7 +15,7 @@ function getRequestMethod() {
 /**
  * Recupera a rota do Request
  *
- * @return void
+ * @return string
  */
 function getRequestRoute() {
     $directory = current( explode('/index.php', $_SERVER["SCRIPT_NAME"]) ) ?? '';
@@ -23,4 +23,14 @@ function getRequestRoute() {
     $route = str_replace($directory, '', $route);
 
     return $route;
+}
+
+/**
+ * Verifica se uma string é um e-mail válido.
+ *
+ * @param string $email
+ * @return boolean
+ */
+function valid_email( $email ) {
+    return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email )) ? FALSE : TRUE;
 }
