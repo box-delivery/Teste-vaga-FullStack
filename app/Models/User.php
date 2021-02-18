@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function favorites()
+    {
+        return $this->belongsTo(Favorites::class, 'id', 'user_id')->where('favorites.is_favorite',1);
+    }
+
 }

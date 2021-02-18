@@ -21,11 +21,3 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->name('movies.')->prefix('movies')->group(function (){
-    Route::get('/list', [MoviesController::class,'list'])->name('list');
-    Route::prefix('favorites.')->name('favorites.')->prefix('favorites')->group(function(){
-        Route::get('/list', [FavoritesController::class, 'list'])->name('list');
-        Route::post('/toggle', [FavoritesController::class, 'toggle'])->name('toggle');
-    });
-});
