@@ -33,10 +33,19 @@ class LoginController extends AppController
             return $this->send_json_error("Usuário ou Senha inválidos");
         }
 
+        $token = hash('sha256', bin2hex( random_bytes(32) ) );
+
+        $db->update('users', [
+                'token' => $token
+            ],[
+                'id' => $user['id']
+            ]
+        );
+
         $this->send_json_success([
             'status' => true,
             'message' => 'Login realizado com sucesso',
-            'token' => '123123213213'
+            'token' => $token
         ]);
     }
 

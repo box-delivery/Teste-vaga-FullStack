@@ -23,9 +23,11 @@ final class UserMigration extends AbstractMigration
             ->addColumn('name', 'string')
             ->addColumn('email', 'string')
             ->addColumn('password', 'string')
+            ->addColumn('token', 'string')
             ->addColumn('created', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addIndex(['email'], ['unique' => true])
+            ->addIndex(['token'], ['unique' => true])
             ->create();
     }
 }
