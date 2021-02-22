@@ -5,40 +5,51 @@ namespace App\Filters;
 use App\Controllers\AppController;
 use App\Models\User;
 
-class AuthFilter{
-
-
+/**
+ * AuthFilter class
+ */
+class AuthFilter
+{
     /**
      * Main function to validate Bearer Token Request
      *
-     * @return void
+     * @return boolean
      */
     public function validate()
     {
-        $token = $this->getBearerToken();
+        $user = $this->get_user();
+        return ($user) ? true : false;
+    }
 
-        if ( ! $token ) {
-            $this->unauthorizedResponse();
+    /**
+     * Recuperando o usuário através do token
+     *
+     * @return User/boolean
+     */
+    public function get_user()
+    {
+        $token = $this->_getBearerToken();
+
+        if (!$token) {
             return false;
         }
 
         $userModel = new User();
-        $user = $userModel->findByToken( $token );
+        $user = $userModel->findByToken($token);
 
-        if ( ! $user ) {
-            $this->unauthorizedResponse();
+        if (!$user) {
             return false;
         }
 
-        return true;
+        return $user;
     }
 
     /**
      * Private function to send unauthorized response to client
      *
-     * @return void
+     * @return string
      */
-    private function unauthorizedResponse()
+    private function _unauthorizedResponse()
     {
         $app = new AppController();
         $app->send_json_error('401 Unauthorized', 401);
@@ -47,11 +58,11 @@ class AuthFilter{
     /**
      * Private function to return BearerToken from Request
      *
-     * @return void
+     * @return string
      */
-    private function getBearerToken() 
+    private function _getBearerToken() 
     {
-        $headers = $this->getAuthorizationHeader();
+        $headers = $this->_getAuthorizationHeader();
         // HEADER: Get the access token from the header
         if (!empty($headers)) {
             if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
@@ -64,9 +75,9 @@ class AuthFilter{
     /**
      * Function to get Authorization Headers from Request
      *
-     * @return void
+     * @return string
      */
-    private function getAuthorizationHeader()
+    private function _getAuthorizationHeader()
     {
         $headers = null;
         if (isset($_SERVER['Authorization'])) {

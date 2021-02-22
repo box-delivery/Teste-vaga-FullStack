@@ -24,7 +24,7 @@ class CreateAccountController extends AppController
         extract($_POST);
 
         //email is valid
-        if (!valid_email($email)) {
+        if (!validEmail($email)) {
             return $this->send_json_error("E-mail inválido");
         }
 
