@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('login', [\App\Http\Controllers\User::class, 'login'])->name('login');
+
+Route::resource('user', \App\Http\Controllers\User::class)->except(['create', 'edit']);
+
+Route::group(['prefix' => 'samu', 'middleware' => 'auth:api'], function () {
+    Route::post('samu', function () {
+        return response()->json("seu cu", 200);
+    });
 });
