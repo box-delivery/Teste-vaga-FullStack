@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -23,13 +26,20 @@ class AuthController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        $validatedData['password'] = bcrypt($request->password);
+        try {
+            DB::beginTransaction();
+            $validatedData['password'] = bcrypt($request->password);
 
-        $user = User::create($validatedData);
+            $user = User::create($validatedData);
 
-        $accessToken = $user->createToken('authToken')->accessToken;
-
-        return response([ 'user' => $user, 'access_token' => $accessToken]);
+            $accessToken = $user->createToken('authToken')->accessToken;
+            DB::commit();
+            return response([ 'message' => 'Usuário criado com sucesso', 'user' => $user, 'access_token' => $accessToken]);
+        } catch (Exception $e) {
+            DB::rollback();
+            Log::critical('Falha ao criar usuário: ' . $e);
+            return response(['message' => 'Desculpe, algo deu errado :('], 500);
+        }
     }
 
     /**
@@ -45,12 +55,15 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if (!auth()->attempt($loginData)) {
-            return response(['message' => 'Invalid Credentials']);
+        try {
+            if (!auth()->attempt($loginData)) {
+                return response(['message' => 'Invalid Credentials'], 422);
+            }
+            $accessToken = auth()->user()->createToken('authToken')->accessToken;
+            return response(['message' => 'Login efetuado com sucesso', 'user' => auth()->user(), 'access_token' => $accessToken]);
+        } catch (Exception $e) {
+            Log::critical('Erro no login: ' . $e);
+            return response(['message' => 'Desculpe, algo deu errado :('], 500);
         }
-
-        $accessToken = auth()->user()->createToken('authToken')->accessToken;
-
-        return response(['user' => auth()->user(), 'access_token' => $accessToken]);
     }
 }
