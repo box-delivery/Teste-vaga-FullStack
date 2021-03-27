@@ -20,6 +20,6 @@ Route::resource('user', \App\Http\Controllers\User::class)->except(['create', 'e
 
 Route::group(['prefix' => 'samu', 'middleware' => 'auth:api'], function () {
     Route::post('samu', function () {
-        return response()->json("seu cu", 200);
+        return response()->json("seu cu");
     });
 });
