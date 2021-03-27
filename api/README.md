@@ -13,7 +13,7 @@
 - create an **"api"** named database
 - rename **".env.example"** file to **".env"**
 - set database credentials and passwords length range on **".env"** file
-- run this following commands:
+- on **api** directory, run this following commands:
 ```shell
 composer install
 php artisan migrate --seed
