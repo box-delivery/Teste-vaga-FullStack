@@ -59,6 +59,8 @@ class AuthController extends Controller
             if (!auth()->attempt($loginData)) {
                 return response(['message' => 'Invalid Credentials'], 422);
             }
+
+            auth()->user()->removeTokens();
             $accessToken = auth()->user()->createToken('authToken')->accessToken;
             return response(['message' => 'Login efetuado com sucesso', 'user' => auth()->user(), 'access_token' => $accessToken]);
         } catch (Exception $e) {

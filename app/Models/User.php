@@ -44,4 +44,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function removeTokens()
+    {
+        foreach ($this->tokens as $key => $token) {
+            $token->delete();
+        }
+    }
 }
