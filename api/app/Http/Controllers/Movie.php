@@ -21,7 +21,7 @@ class Movie extends Controller
     public function favoriteAttach(Request $request): Response
     {
         $v = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'movie_id' =>  'required|integer|gt:0'
+            'movie_id' =>  'required|integer|exists:movies,id'
         ]);
         if ($v->fails()) {
             return \response($v->errors(), 400);
@@ -33,7 +33,7 @@ class Movie extends Controller
     public function favoriteDetach(Request $request): Response
     {
         $v = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'movie_id' =>  'required|integer|gt:0'
+            'movie_id' =>  'required|integer|exists:movies,id'
         ]);
         if ($v->fails()) {
             return \response($v->errors(), 400);
