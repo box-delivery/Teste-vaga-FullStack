@@ -222,7 +222,7 @@ class AuthTest extends TestCase
     /**
      * Criar um usuário para teste
      *
-     * @return void
+     * @return User
      */
     private function createTestUser()
     {

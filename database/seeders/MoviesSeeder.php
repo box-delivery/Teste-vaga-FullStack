@@ -18,13 +18,13 @@ class MoviesSeeder extends Seeder
     {
         $movies = collect([]);
 
-        for ($page=1; $page <= 5 ; $page++) { 
+        for ($page = 1; $page <= 5; $page++) {
             $response = json_decode(Http::get($this->moviesProvider, [
                 "api_key" => env('TMDB_KEY'),
                 "language" => "pt_BR",
                 "page" => $page
             ])->body());
-            
+
             foreach ($response->results as $key => $movie) {
                 $movies->push($movie);
             }

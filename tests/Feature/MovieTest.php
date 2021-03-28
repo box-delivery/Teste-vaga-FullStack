@@ -32,7 +32,7 @@ class MovieTest extends TestCase
         DB::rollback();
     }
 
-    public function testIndexWithoutToken()
+    public function testIndexUnauthenticated()
     {
         $response = $this->withHeaders([
             'Accept' => 'application/json'
