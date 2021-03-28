@@ -32,26 +32,54 @@ class MovieTest extends TestCase
         DB::rollback();
     }
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testShow()
+    public function testIndexWithoutToken()
+    {
+        $response = $this->withHeaders([
+            'Accept' => 'application/json'
+            ])
+            ->get('/api/movies');
+
+        $response->assertStatus(401);
+        
+        DB::rollback();
+    }
+
+    public function testWithParam()
     {
         DB::beginTransaction();
+        
         $token = $this->userToken();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token
             ])
-            ->get('/api/movies');
-
-        $response = $this->withHeaders(['Accept' => 'application/json'])
-            ->get('/api/movies/1');
+            ->get('/api/movies', [
+                'movie_title' => 'Batman'
+            ]);
 
         $response->assertStatus(200);
+
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $token
+            ])
+            ->get('/api/movies', [
+                'movie_title' => ''
+            ]);
+
+        $response->assertStatus(200);
+
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $token
+            ])
+            ->get('/api/movies', [
+                'movie_title' => '123123ljljk112313lj'
+            ]);
+
+        $response->assertStatus(200);
+        
         DB::rollback();
     }
 

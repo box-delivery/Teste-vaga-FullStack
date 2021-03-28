@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\Models\Movie;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MovieController extends Controller
 {
@@ -12,19 +15,19 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        try {
+            $movies = Movie::where('title', 'like', "%{$request->movie_title}%")
+                ->orWhere('original_title', 'like', "%{$request->movie_title}%")
+                ->paginate(20)
+                ->toArray();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+            unset($movies['links']);
+            return response(['message' => 'Filmes encontrados', 'results' => $movies]);
+        } catch (Exception $e) {
+            Log::info('Erro ao buscar filme: ' . $e);
+            return response(['message' => 'Desculpe, algo deu errado :('], 500);
+        }
     }
 }

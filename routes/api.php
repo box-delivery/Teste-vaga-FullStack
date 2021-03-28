@@ -20,5 +20,5 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:api'])->group(function() {
-    Route::resource('movies', MovieController::class)->only(['index', 'show']);
+    Route::resource('movies', MovieController::class)->only(['index']);
 });
