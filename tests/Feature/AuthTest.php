@@ -15,7 +15,7 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    public function test_register_without_name()
+    public function testRegisterWithoutName()
     {
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
@@ -40,7 +40,7 @@ class AuthTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function test_register_without_email()
+    public function testRegisterWithoutEmail()
     {
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
@@ -54,7 +54,7 @@ class AuthTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function test_register_password_validation()
+    public function testRegisterPasswordValidation()
     {
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
@@ -112,7 +112,7 @@ class AuthTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function test_register_user()
+    public function testRegisterUser()
     {
         DB::beginTransaction();
         $response = $this->withHeaders(['Accept' => 'application/json'])
@@ -140,7 +140,7 @@ class AuthTest extends TestCase
         DB::rollback();
     }
 
-    public function test_register_duplicated_email()
+    public function testRegisterDuplicatedEmail()
     {
         DB::beginTransaction();
 
@@ -159,7 +159,7 @@ class AuthTest extends TestCase
         DB::rollback();
     }
 
-    public function test_valid_login()
+    public function testValidLogin()
     {
         DB::beginTransaction();
 
@@ -175,7 +175,7 @@ class AuthTest extends TestCase
         DB::rollback();
     }
 
-    public function test_invalid_login()
+    public function testInvalidLogin()
     {
         DB::beginTransaction();
 
@@ -192,7 +192,7 @@ class AuthTest extends TestCase
         DB::rollback();
     }
 
-    public function test_login_token_return()
+    public function testLoginTokenReturn()
     {
         DB::beginTransaction();
 
