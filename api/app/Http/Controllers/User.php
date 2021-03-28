@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 class User extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -26,18 +17,18 @@ class User extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $v = Validator::make($request->only(['name', 'email', 'password']), [
             'name' => 'required|string|max:200',
             'email' => 'required|email|unique:users,email',
             'password' => 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*([^a-zA-Z\d\s])).{'
-                    . env('PASSWORD_MIN_LENGTH') . ',' . env('password_max_length') .
+                    . env('PASSWORD_MIN_LENGTH') . ',' . env('PASSWORD_MAX_LENGTH') .
                 '}$/'
         ]);
 
         if ($v->fails()) {
-            return response()->json($v->errors(), 400);
+            return response($v->errors(), 400);
         }
 
         $user = \App\Models\User::create([
@@ -58,40 +49,6 @@ class User extends Controller
         ]);
 
         return Route::dispatch(Request::create('oauth/token', 'POST'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function login(Request $request)

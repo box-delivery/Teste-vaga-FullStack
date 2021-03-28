@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('register', [\App\Http\Controllers\User::class, 'register'])->name('register');
 Route::post('login', [\App\Http\Controllers\User::class, 'login'])->name('login');
-
-Route::resource('user', \App\Http\Controllers\User::class)->except(['create', 'edit']);
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('movie', Movie::class)->only(['index']);
