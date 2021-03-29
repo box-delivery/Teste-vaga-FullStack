@@ -18,8 +18,8 @@ class CreateMoviesTable extends Migration
             $table->string('title');
             $table->string('original_title');
             $table->text('overview');
-            $table->date('release_date');
-            $table->string('original_language');
+            $table->date('release_date')->nullable();
+            $table->string('original_language')->nullable();
             $table->timestamps();
         });
     }
