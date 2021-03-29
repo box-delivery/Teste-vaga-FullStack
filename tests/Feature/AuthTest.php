@@ -32,7 +32,7 @@ class AuthTest extends TestCase
             ->post('/api/register', [
             "first_name" => "",
             "last_name" => "Ciclano",
-            "email" => "yanw100@gmail.com",
+            "email" => "fulano@gmail.com",
             "password" => "123456",
             "password_confirmation" => "123456"
         ]);
@@ -44,7 +44,7 @@ class AuthTest extends TestCase
     {
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
-            "first_name" => "Yan",
+            "first_name" => "Fulano",
             "last_name" => "Ciclano",
             "email" => "",
             "password" => "123456",
@@ -58,7 +58,7 @@ class AuthTest extends TestCase
     {
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
-            "first_name" => "Yan",
+            "first_name" => "Fulano",
             "last_name" => "Ciclano",
             "email" => "fulano@mail.com",
             "password" => "12346",
@@ -69,7 +69,7 @@ class AuthTest extends TestCase
 
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
-            "first_name" => "Yan",
+            "first_name" => "Fulano",
             "last_name" => "Ciclano",
             "email" => "fulano@mail.com",
             "password" => "123456",
@@ -80,7 +80,7 @@ class AuthTest extends TestCase
 
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
-            "first_name" => "Yan",
+            "first_name" => "Fulano",
             "last_name" => "Ciclano",
             "email" => "fulano@mail.com",
             "password" => "",
@@ -91,7 +91,7 @@ class AuthTest extends TestCase
 
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
-            "first_name" => "Yan",
+            "first_name" => "Fulano",
             "last_name" => "Ciclano",
             "email" => "fulano@mail.com",
             "password" => "123456",
@@ -102,7 +102,7 @@ class AuthTest extends TestCase
 
         $response = $this->withHeaders(['Accept' => 'application/json'])
             ->post('/api/register', [
-            "first_name" => "Yan",
+            "first_name" => "Fulano",
             "last_name" => "Ciclano",
             "email" => "fulano@mail.com",
             "password" => "",
