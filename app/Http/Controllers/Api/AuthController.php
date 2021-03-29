@@ -57,7 +57,7 @@ class AuthController extends Controller
 
         try {
             if (!auth()->attempt($loginData)) {
-                return response(['message' => 'Invalid Credentials'], 422);
+                return response(['message' => 'Dados inválidos'], 422);
             }
 
             auth()->user()->removeTokens();
