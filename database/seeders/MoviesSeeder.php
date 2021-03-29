@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use Exception;
 use App\Models\Movie;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class MoviesSeeder extends Seeder
 {
@@ -46,7 +48,8 @@ class MoviesSeeder extends Seeder
                 }
             }
             DB::commit();
-        } catch (\Throwable $th) {
+        } catch (Exception $e) {
+            Log::info('Registrando erro no seed de filmes: ' . $e);
             DB::rollback();
         }
     }
