@@ -92,7 +92,6 @@ class UserFavoriteMovieTest extends TestCase
         DB::beginTransaction();
         
         $user = $this->user();
-        $movie = Movie::first();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',
@@ -114,7 +113,6 @@ class UserFavoriteMovieTest extends TestCase
         DB::beginTransaction();
         
         $user = $this->user();
-        $movie = Movie::first();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',
