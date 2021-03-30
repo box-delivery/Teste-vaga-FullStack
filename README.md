@@ -14,7 +14,7 @@
 
 ### Iniciando o projeto sem docker:
 1. Clone o repositório
-1. Gere uma API_KEY no [The movie db](https://www.themoviedb.org/ "the moivei db") e adiciona ele no .env em TMDB_KEY
+1. Gere uma API_KEY no [The movie db](https://www.themoviedb.org/ "the movie db") e adiciona ele no .env em TMDB_KEY
 1. Na pasta em que o projeto foi clonado use o comando `composer install`
 1. Rode o comando `php artisan migrate`
 1. Preencha a base de filmes com o comando `php artisan db:seed`
