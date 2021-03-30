@@ -2,7 +2,7 @@
 
 ### Iniciando o projeto com laravel sail (docker):
 1. Clone o repositório
-1. Gere uma API_KEY no [The movie db](https://www.themoviedb.org/ "the moivei db") e adiciona ele no .env em TMDB_KEY
+1. Gere uma API_KEY no [The movie db](https://www.themoviedb.org/ "the movie db") e adiciona ele no .env em TMDB_KEY
 1. use o comando `composer install`
 1. Na pasta em que o projeto foi clonado use o comando `./vendor/bin/sail up -d` caso não queira usar o sail, certifique-se de estar com seus containeres up and running e configure o .env com as informações corretas.
 1. Rode o comando `php artisan migrate`
