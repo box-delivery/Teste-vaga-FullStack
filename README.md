@@ -1,43 +1,25 @@
-## Objetivos
-O objetivo do teste é conhecer as habilidades em:
-- Programação Backend 
-- Organização e estruturação de um projeto
-- Análise/Entendimento de requisitos
-- Qualidade do código
-- Conhecimento em banco de dados
-- Conhecimento de APIs
-- Lógica
+# Teste-vaga-Backend - Yan de Paula
 
-## Importante
-Nenhum código desenvolvido nesse teste será utilizado de forma comercial. O objetivo aqui é apenas avaliar o conhecimento do candidato.
+### Iniciando o projeto com laravel sail (docker):
+1. Clone o repositório
+1. Gere uma API_KEY no [The movie db](https://www.themoviedb.org/ "the movie db") e adiciona ele no .env em TMDB_KEY
+1. use o comando `composer install`
+1. Na pasta em que o projeto foi clonado use o comando `./vendor/bin/sail up -d` caso não queira usar o sail, certifique-se de estar com seus containeres up and running e configure o .env com as informações corretas.
+1. Rode o comando `php artisan migrate`
+1. Preencha a base de filmes com o comando `php artisan db:seed`
+1. Use o comando `php artisan passport:install` para configurar as chaves do passport
+1. Use o comando `php artisan key:generate` para gerar um APP_KEY no .env caso não tenha sido preenchido
+1. Use o comando `php artisan test` para efetuar os testes
+1. Acesse a [documentação](https://documenter.getpostman.com/view/4704378/TzCL99Gc "documentação") e use a API :)
 
-## O teste
-Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
+### Iniciando o projeto sem docker:
+1. Clone o repositório
+1. Gere uma API_KEY no [The movie db](https://www.themoviedb.org/ "the movie db") e adiciona ele no .env em TMDB_KEY
+1. Na pasta em que o projeto foi clonado use o comando `composer install`
+1. Rode o comando `php artisan migrate`
+1. Preencha a base de filmes com o comando `php artisan db:seed`
+1. Use o comando `php artisan passport:install` para configurar as chaves do passport
+1. Use o comando `php artisan key:generate` para gerar um APP_KEY no .env caso não tenha sido preenchido
+1. Use o comando `php artisan test` para efetuar os testes
+1. Acesse a [documentação](https://documenter.getpostman.com/view/4704378/TzCL99Gc "documentação") e use a API :)
 
-### Então você vai precisar:
-- Criar a estrutura de projeto utilizando as melhores técnicas que facilitem a manutenção futura do projeto
-- Criar a estrutura de banco de dados
-- Popular a tabela de filmes (recomendados consumir a API do The Movie DB)
-- Criar sistema de autenticação para que o usuário se cadastre e consiga efetuar login
-- Criar os endpoints para:
-  - Cadastras usuário
-  - Efetuar login para poder consumir o restante da API
-  - Listar os filmes cadastrados no banco
-  - Listar os filmes que o usuário salvou como favorito
-  - Salvar um filme como favorito
-  - Remover um filme da lista de favoritos do usuário
-  
-Não esqueça das validações!
-
-### O que devo utilizar?
-- Qualquer biblioteca/framework
-- Alguma arquitetura que facilite a manutenção futura do código
-
-### Plus
-- Testes automatizados
-
-### Como participar ?
-- Fazer um fork deste repositório e enviar um pull request ao finalizar. Não esqueça de colocar as instruções para rodar o projeto.
-
-
-# Boa sorte!
