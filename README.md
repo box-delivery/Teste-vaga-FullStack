@@ -8,6 +8,7 @@
 1. Rode o comando `php artisan migrate`
 1. Preencha a base de filmes com o comando `php artisan db:seed`
 1. Use o comando `php artisan passport:install` para configurar as chaves do passport
+1. Use o comando `php artisan key:generate` para gerar um APP_KEY no .env caso não tenha sido preenchido
 1. Use o comando `php artisan test` para efetuar os testes
 1. Acesse a [documentação](https://documenter.getpostman.com/view/4704378/TzCL99Gc "documentação") e use a API :)
 
@@ -18,6 +19,7 @@
 1. Rode o comando `php artisan migrate`
 1. Preencha a base de filmes com o comando `php artisan db:seed`
 1. Use o comando `php artisan passport:install` para configurar as chaves do passport
+1. Use o comando `php artisan key:generate` para gerar um APP_KEY no .env caso não tenha sido preenchido
 1. Use o comando `php artisan test` para efetuar os testes
 1. Acesse a [documentação](https://documenter.getpostman.com/view/4704378/TzCL99Gc "documentação") e use a API :)
 
