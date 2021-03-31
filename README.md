@@ -1,6 +1,6 @@
 ## Objetivos
 O objetivo do teste é conhecer as habilidades em:
-- Programação Backend 
+- Programação Frontend/Backend 
 - Organização e estruturação de um projeto
 - Análise/Entendimento de requisitos
 - Qualidade do código
@@ -12,7 +12,7 @@ O objetivo do teste é conhecer as habilidades em:
 Nenhum código desenvolvido nesse teste será utilizado de forma comercial. O objetivo aqui é apenas avaliar o conhecimento do candidato.
 
 ## O teste
-Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
+Que tal desenvolvermos um sistema de filmes favoritos para que as pessoas consigam fazer uma lista dos filmes que elas mais gostam?
 
 ### Então você vai precisar:
 - Criar a estrutura de projeto utilizando as melhores técnicas que facilitem a manutenção futura do projeto
@@ -26,7 +26,8 @@ Que tal desenvolvermos uma API de filmes favoritos para que as pessoas consigam 
   - Listar os filmes que o usuário salvou como favorito
   - Salvar um filme como favorito
   - Remover um filme da lista de favoritos do usuário
-  
+- Criar o front de todas as telas integrando com as APIs criadas
+
 Não esqueça das validações!
 
 ### O que devo utilizar?
