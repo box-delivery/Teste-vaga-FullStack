@@ -42,3 +42,5 @@ Não esqueça das validações!
 
 
 # Boa sorte!
+
+Olá, adicionei as informações do teste nesse documento [aqui](DOCS.md)

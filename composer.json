@@ -1,0 +1,21 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\Clients\\": "app/clients/",
+            "App\\Controllers\\": "app/controllers/",
+            "App\\Filters\\": "app/filters/",
+            "App\\Models\\": "app/models/",
+            "DB\\": "db/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.3",
+        "robmorgan/phinx": "^0.12.5",
+        "phroute/phroute": "^2.1",
+        "catfan/medoo": "^1.7",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
+    }
+}
